@@ -36,7 +36,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ===== HERO ===== */
 .rpt-hero{position:relative;height:100vh;height:100dvh;min-height:640px;width:100%;overflow:hidden;background:#0a0a0a;color:#fff}
-.rpt-hero-bg{position:absolute;inset:0;background:url('./photos/DSC_2963.jpg') center 30%/cover no-repeat;animation:rptHeroKenBurns 14s ease-out forwards}
+.rpt-hero-bg{position:absolute;inset:-12% 0;background:url('./photos/DSC_2963.jpg') center 30%/cover no-repeat}
 @keyframes rptHeroKenBurns{from{transform:scale(1.04)}to{transform:scale(1.1)}}
 @media (prefers-reduced-motion:reduce){.rpt-hero-bg{animation:none;transform:none}}
 .rpt-hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.2) 40%,rgba(0,0,0,.5) 70%,rgba(0,0,0,.82) 100%);z-index:1}
@@ -168,8 +168,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .has-custom-cursor body,.has-custom-cursor a,.has-custom-cursor button,.has-custom-cursor [role=button]{cursor:none}
 @media (hover:none),(pointer:coarse){.site-cursor{display:none!important}.has-custom-cursor,.has-custom-cursor *{cursor:auto!important}}
 </style>
+<link rel="stylesheet" href="assets/css/hmc-parallax.css">
 </head>
 <body>
+<div class="hmc-progress" aria-hidden="true"></div>
 
 <!-- ===== TOP NAV ===== -->
 <nav class="report-nav" aria-label="Page navigation">
@@ -178,7 +180,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 <!-- ===== HERO ===== -->
 <section class="rpt-hero" aria-label="Report hero">
-  <div class="rpt-hero-bg" aria-hidden="true"></div>
+  <div class="rpt-hero-bg" aria-hidden="true" data-layer="0.14"></div>
   <div class="rpt-hero-scrim" aria-hidden="true"></div>
   <div class="rpt-hero-content">
     <span class="rpt-hero-eyebrow">Participant Evaluation Summary</span>
@@ -363,6 +365,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   </div>
 </section>
 
+<div class="hmc-kinetic" style="background:#f5efe3;padding:clamp(40px,7vw,90px) 0"><div class="hmc-kinetic-row" data-kinetic="-0.2"><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span></div></div>
+
 <!-- ===== DOWNLOAD CTA ===== -->
 <section class="rpt-section rpt-section--cream" id="download">
   <div class="rpt-inner">
@@ -479,5 +483,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 })();
 </script>
 
+<script src="assets/js/hmc-parallax.js" defer></script>
 </body>
 </html>

@@ -839,13 +839,15 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
 @media(max-width:900px){.site-cursor{display:none!important;}}
 
 </style>
+<link rel="stylesheet" href="assets/css/hmc-parallax.css">
 </head>
 <body>
+<div class="hmc-progress" aria-hidden="true"></div>
 <a class="skip-nav" href="#mission">Skip to main content</a>
 
 <!-- ================ A. HERO (ASICS-inspired editorial layout) ================ -->
 <section class="hero" id="top">
-  <div class="hero-carousel" aria-hidden="true">
+  <div class="hero-carousel" aria-hidden="true" data-layer="0.12" style="top:-12%;bottom:-12%;height:auto">
     <div class="hero-slide active" style="background-image:url('https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122056/DSC_3084_praqo9.jpg');background-position:center 55%"></div>
     <div class="hero-slide" style="background-image:url('https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122067/DSC_3421_nzsg0y.jpg');background-position:center 55%"></div>
     <div class="hero-slide" style="background-image:url('https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122223/DSC_3070_hgbw7w.jpg');background-position:center 55%"></div>
@@ -1205,6 +1207,8 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
     <p class="impact-source rise-on-scroll">Source: Unstoppable Workshop Evaluation, presented to LACDMH 2025. <a href="./report.html">Read the full report.</a></p>
   </div>
 </section>
+
+<div class="hmc-kinetic" style="background:#f5efe3;padding:clamp(40px,7vw,90px) 0"><div class="hmc-kinetic-row" data-kinetic="-0.2"><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span></div></div>
 
 <!-- ================ G. OUR REPORT ================ -->
 <section class="report" id="report">
@@ -1985,5 +1989,6 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
   .intro-stories-dots{right:8px!important;top:50%!important;bottom:auto!important;left:auto!important;transform:translateY(-50%)!important;flex-direction:column!important}
 }
 </style>
+<script src="assets/js/hmc-parallax.js" defer></script>
 </body>
 </html>

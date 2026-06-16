@@ -72,13 +72,18 @@
     .module .tag{display:block;margin:8px 0 0;width:max-content;}
   }
 </style>
+<link rel="stylesheet" href="assets/css/hmc-parallax.css">
 </head>
 <body>
+<div class="hmc-progress" aria-hidden="true"></div>
 
-<header class="hero">
+<div class="hmc-pin-wrap" style="height:200vh">
+  <div class="hmc-pin">
+    <div class="hmc-pin-bg" style="background:#0a0a0a"></div>
+<header class="hero" data-pin-fade style="background:transparent;position:relative;z-index:1;width:100%;padding-top:0;padding-bottom:0">
   <div class="wrap">
     <p class="eyebrow">A Health Matters Clinic Course</p>
-    <h1>The Unstoppable <span>Creator</span></h1>
+    <h1>The Unstoppable <span class="hmc-mask">Creator</span></h1>
     <p class="lead">Success online can bring opportunity, influence, and community. It can also bring burnout, anxiety, criticism, loneliness, and constant pressure to perform. This course equips creators with practical tools to protect their wellbeing and build a career that lasts, drawing from the evidence-informed Unstoppable curriculum developed alongside licensed behavioral health professionals.</p>
     <div class="cta-row">
       <a class="btn btn-blue" href="#interest"><span class="dot"></span>Join the Interest List</a>
@@ -86,19 +91,23 @@
     </div>
   </div>
 </header>
+  </div>
+</div>
+
+<div class="hmc-kinetic" style="background:#f5f1e8;padding:clamp(40px,7vw,90px) 0"><div class="hmc-kinetic-row" data-kinetic="-0.22"><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span><span class="o">Unstoppable</span><span class="accent"> &middot; </span></div></div>
 
 <section>
   <div class="wrap">
     <p class="kicker">What's Inside</p>
-    <h2>Five modules. One final challenge.</h2>
+    <h2 class="hmc-reveal">Five modules. One final challenge.</h2>
     <p class="sub">Full module content is shared with enrolled students.</p>
     <div class="modules">
-      <div class="module"><span class="num">01</span><span class="name">The Hidden Side of Success</span></div>
-      <div class="module"><span class="num">02</span><span class="name">Recognizing Warning Signs</span></div>
-      <div class="module"><span class="num">03</span><span class="name">Building Resilience</span></div>
-      <div class="module"><span class="num">04</span><span class="name">Community, Relationships &amp; Support</span></div>
-      <div class="module"><span class="num">05</span><span class="name">Staying Unstoppable</span></div>
-      <div class="module"><span class="num">06</span><span class="name">Create Your Unstoppable Plan<span class="tag">Final Challenge</span></span></div>
+      <div class="module hmc-reveal"><span class="num">01</span><span class="name">The Hidden Side of Success</span></div>
+      <div class="module hmc-reveal"><span class="num">02</span><span class="name">Recognizing Warning Signs</span></div>
+      <div class="module hmc-reveal"><span class="num">03</span><span class="name">Building Resilience</span></div>
+      <div class="module hmc-reveal"><span class="num">04</span><span class="name">Community, Relationships &amp; Support</span></div>
+      <div class="module hmc-reveal"><span class="num">05</span><span class="name">Staying Unstoppable</span></div>
+      <div class="module hmc-reveal"><span class="num">06</span><span class="name">Create Your Unstoppable Plan<span class="tag">Final Challenge</span></span></div>
     </div>
     <p class="modules-note">Built for aspiring and established creators on every platform.</p>
   </div>
@@ -107,12 +116,12 @@
 <section class="outcomes">
   <div class="wrap">
     <p class="kicker">Outcomes</p>
-    <h2>What you'll walk away with.</h2>
+    <h2 class="hmc-reveal">What you'll walk away with.</h2>
     <div class="outcome-grid">
-      <div class="outcome"><b>Know the signs.</b><p>Recognize burnout, anxiety, depression, and chronic stress in yourself and the people you create with.</p></div>
-      <div class="outcome"><b>Handle the pressure.</b><p>Navigate criticism, rejection, and setbacks with practical resilience and coping strategies.</p></div>
-      <div class="outcome"><b>Build your people.</b><p>Strengthen support systems and set boundaries online and offline.</p></div>
-      <div class="outcome"><b>Last in the game.</b><p>Leave with a personalized plan for sustainable success and purpose beyond views and followers.</p></div>
+      <div class="outcome hmc-reveal"><b>Know the signs.</b><p>Recognize burnout, anxiety, depression, and chronic stress in yourself and the people you create with.</p></div>
+      <div class="outcome hmc-reveal"><b>Handle the pressure.</b><p>Navigate criticism, rejection, and setbacks with practical resilience and coping strategies.</p></div>
+      <div class="outcome hmc-reveal"><b>Build your people.</b><p>Strengthen support systems and set boundaries online and offline.</p></div>
+      <div class="outcome hmc-reveal"><b>Last in the game.</b><p>Leave with a personalized plan for sustainable success and purpose beyond views and followers.</p></div>
     </div>
   </div>
 </section>
@@ -120,9 +129,9 @@
 <section class="form-section" id="interest">
   <div class="wrap">
     <p class="kicker" style="text-align:center">Interest List</p>
-    <h2 style="text-align:center">Be first in line.</h2>
+    <h2 class="hmc-reveal" style="text-align:center">Be first in line.</h2>
     <p class="sub" style="text-align:center;margin:0 auto">Drop your info and we will reach out with cohort dates, format, and enrollment details before anyone else.</p>
-    <div class="form-card">
+    <div class="form-card hmc-reveal">
       <form id="interestForm" class="form-grid">
         <div class="field"><label for="firstName">First Name</label><input id="firstName" required autocomplete="given-name"></div>
         <div class="field"><label for="lastName">Last Name</label><input id="lastName" required autocomplete="family-name"></div>
@@ -178,5 +187,6 @@ document.getElementById('interestForm').addEventListener('submit', function(e){
   document.getElementById('successBox').style.display = 'block';
 });
 </script>
+<script src="assets/js/hmc-parallax.js" defer></script>
 </body>
 </html>
