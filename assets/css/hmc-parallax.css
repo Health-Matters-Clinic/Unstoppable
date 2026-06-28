@@ -1,6 +1,6 @@
 /* HMC Parallax Layer */
 :root{--hmc-blue:#233dff;--hmc-ink:#0a0a0a;--hmc-paper:#f5efe3;}
-.hmc-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;background:linear-gradient(90deg,var(--hmc-blue),#6b7bff);transition:width .08s linear}
+/* .hmc-progress removed — progress bar not used */
 .hmc-mask{background-image:linear-gradient(100deg,var(--hmc-blue),#6b7bff 60%,var(--hmc-blue));background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:hmc-flow 12s ease-in-out infinite}
 .hmc-mask-light{background-image:linear-gradient(100deg,#6b7bff,#fff 55%,#6b7bff)}
 @keyframes hmc-flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}

@@ -128,9 +128,12 @@ a:focus-visible,button:focus-visible,[role=button]:focus-visible,[tabindex]:focu
 .hero-tagline{max-width:540px;color:#fff;font-family:'Questrial','Inter',sans-serif;font-size:clamp(15px,1.4vw,19px);line-height:1.5;font-weight:400;text-shadow:0 2px 12px rgba(0,0,0,.55);text-align:left;letter-spacing:-.005em;margin-top:18px}
 
 /* Custom site cursor — small decorative follower ring layered over the native cursor (does not replace it) */
-.site-cursor{position:fixed;top:0;left:0;width:34px;height:34px;border-radius:50%;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none;z-index:10000;border:1.5px solid rgba(255,255,255,.55);will-change:transform;transition:width .25s ease,height .25s ease,background .25s ease,border-color .25s ease,opacity .25s ease}
-.site-cursor span{display:none}
-.site-cursor.on-clickable{width:48px;height:48px;background:rgba(35,61,255,.18);border-color:#233dff}
+.site-cursor{position:fixed;top:0;left:0;width:80px;height:80px;border-radius:50%;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none;z-index:10000;border:1.5px solid rgba(255,255,255,.55);will-change:transform;transition:width .25s ease,height .25s ease,background .25s ease,border-color .25s ease,opacity .25s ease}
+.site-cursor.on-clickable{width:80px;height:80px;background:rgba(35,61,255,.12);border-color:rgba(35,61,255,.7)}
+.site-cursor svg.scroll-text{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .4s ease;animation:cursorSpin 10s linear infinite}
+.site-cursor.on-hero svg.scroll-text{opacity:1}
+.site-cursor.on-clickable svg.scroll-text{opacity:0}
+@keyframes cursorSpin{to{transform:rotate(360deg)}}
 /* Note: the system cursor is intentionally NOT hidden (accessibility). The follower is a decorative accent layered over the native cursor. */
 @media (hover:none),(pointer:coarse){.site-cursor{display:none!important}}
 @media (prefers-reduced-motion:reduce){.site-cursor{display:none!important}}
@@ -881,15 +884,11 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
 .facilitator-card-cta{background:#fff!important;color:var(--hmc-text)!important;border-color:var(--hmc-text)!important;}
 .facilitator-card-cta:hover{background:var(--hmc-primary)!important;color:#fff!important;border-color:var(--hmc-text)!important;}
 
-/* Avoid preview cursor covering content in screenshots; keep normal cursor for site users */
-.site-cursor{width:70px!important;height:70px!important;font-size:9px!important;background:rgba(10,10,10,.44)!important;}
-@media(max-width:900px){.site-cursor{display:none!important;}}
 
 </style>
 <link rel="stylesheet" href="assets/css/hmc-parallax.css">
 </head>
 <body>
-<div class="hmc-progress" aria-hidden="true"></div>
 <a class="skip-nav" href="#mission">Skip to main content</a>
 
 <!-- ================ A. HERO (ASICS-inspired editorial layout) ================ -->
@@ -917,7 +916,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
       </div>
     </div>
   </div>
-  <div class="hero-scroll-cue" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
+  <div class="hero-scroll-cue" aria-hidden="true"><span class="line"></span></div>
 </section>
 
 <!-- ================ B. SLIDER MISSION (2 slides, lavender, right-side dots) ================ -->
@@ -1974,6 +1973,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
   const c = document.createElement('div');
   c.className = 'site-cursor';
   c.setAttribute('aria-hidden', 'true');
+  c.innerHTML = '<svg class="scroll-text" viewBox="0 0 100 100" fill="none" aria-hidden="true"><defs><path id="hmc-sc-path" d="M50,50m-34,0a34,34,0,1,1,68,0a34,34,0,1,1,-68,0"/></defs><text font-size="7.5" font-weight="700" letter-spacing="5.5" fill="white" font-family="'Inter',-apple-system,sans-serif"><textPath href="#hmc-sc-path">SCROLL · SCROLL · SCROLL · </textPath></text></svg>';
   document.body.appendChild(c);
   document.documentElement.classList.add('has-custom-cursor');
 
@@ -1983,16 +1983,27 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
   (function loop(){
     x += (tx - x) * 0.2;
     y += (ty - y) * 0.2;
-    c.style.transform = 'translate3d(' + (x - 17) + 'px,' + (y - 17) + 'px,0)';
+    c.style.transform = 'translate3d(' + (x - 40) + 'px,' + (y - 40) + 'px,0)';
     requestAnimationFrame(loop);
   })();
+
+  const hero = document.getElementById('top');
+  if (hero) {
+    document.addEventListener('mousemove', function(e) {
+      const r = hero.getBoundingClientRect();
+      if (e.clientY >= r.top && e.clientY <= r.bottom && e.clientX >= r.left && e.clientX <= r.right) {
+        c.classList.add('on-hero');
+      } else {
+        c.classList.remove('on-hero');
+      }
+    }, {passive:true});
+  }
 
   function bind(el){
     el.addEventListener('mouseenter', () => c.classList.add('on-clickable'));
     el.addEventListener('mouseleave', () => c.classList.remove('on-clickable'));
   }
   document.querySelectorAll('a, button, [role=button], input[type=submit], input[type=button], summary').forEach(bind);
-  // Re-bind for dynamically inserted nodes (case-study CTAs, etc.) — runs once after build
   setTimeout(() => document.querySelectorAll('a, button, [role=button], summary').forEach(bind), 200);
 
   window.addEventListener('mouseleave', () => { c.style.opacity = '0'; });
