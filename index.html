@@ -6,24 +6,33 @@
 <title>Unstoppable | Free Mental Health Workshops, Wellness Events & Community Support | Health Matters Clinic</title>
 <link rel="preload" as="image" href="https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122056/DSC_3084_praqo9.jpg">
 <meta name="description" content="Unstoppable is a free community movement for mental health in Black and underserved Los Angeles. Free workshops, wellness events, digital tools, and culturally rooted support to help you heal, grow, and keep moving forward.">
-<link rel="canonical" href="https://teamhmc.github.io/Unstoppable/">
+<link rel="canonical" href="https://unstoppable.healthmatters.clinic/">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="manifest" href="site.webmanifest">
 <meta property="og:title" content="Unstoppable | Free Mental Health Workshops & Community Wellness | Health Matters Clinic">
 <meta property="og:description" content="Free workshops, wellness events, digital tools, and community support for Black and underserved Los Angeles. Join the Unstoppable movement.">
 <meta property="og:image" content="https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122067/DSC_3421_nzsg0y.jpg">
-<meta property="og:url" content="https://teamhmc.github.io/Unstoppable/">
+<meta property="og:url" content="https://unstoppable.healthmatters.clinic/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Unstoppable | Free Mental Health Workshops & Community Wellness">
 <meta name="twitter:description" content="Free workshops, wellness events, and digital tools for Black and underserved Los Angeles.">
 <meta name="twitter:image" content="https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122067/DSC_3421_nzsg0y.jpg">
-<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="icon" href="assets/site/hmc-icon-512.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/site/hmc-icon-512.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
+  "@type": "MedicalOrganization",
+  "additionalType": "https://schema.org/NGO",
   "name": "Unstoppable by Health Matters Clinic",
   "description": "Free community mental health workshops, wellness events, and digital tools for Black and underserved Los Angeles.",
-  "url": "https://teamhmc.github.io/Unstoppable/",
+  "url": "https://unstoppable.healthmatters.clinic/",
+  "sameAs": [
+    "https://www.instagram.com/healthmatters.clinic",
+    "https://linkedin.com/company/healthmattersclinic",
+    "https://www.youtube.com/@healthmatters.clinic"
+  ],
   "logo": "https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122056/DSC_3084_praqo9.jpg",
   "image": "https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122067/DSC_3421_nzsg0y.jpg",
   "telephone": "+13239904325",
@@ -44,6 +53,19 @@
     "price": "0",
     "priceCurrency": "USD",
     "description": "Free community mental health workshops and wellness events"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Unstoppable by Health Matters Clinic",
+  "url": "https://unstoppable.healthmatters.clinic/",
+  "publisher": {
+    "@type": "NGO",
+    "name": "Health Matters Clinic",
+    "url": "https://www.healthmatters.clinic"
   }
 }
 </script>
@@ -892,11 +914,6 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
       <div class="hero-right">
         <p class="hero-tagline">Heal. Grow. Keep Moving Forward.</p>
         <p class="hero-free">A community movement for mental health offering workshops, wellness events, digital tools, and community support to help people build resilience, strengthen wellbeing, and stay connected.</p>
-        <div class="hero-ctas">
-          <a class="hero-cta-primary" href="https://eventfinder.healthmatters.clinic" target="_blank" rel="noopener"><span class="btn-dot"></span>Find a Free Event</a>
-          <a class="hero-cta-secondary" href="#facilitator"><span class="btn-dot-outline"></span>Get Trained</a>
-        </div>
-        <p class="hero-free">Free walks, workshops, and wellness meetups across Los Angeles. No cost, no insurance, just show up.</p>
       </div>
     </div>
   </div>
@@ -1433,7 +1450,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
           <details class="footer-faq-item">
             <summary>How do I bring it to my community?</summary>
             <div class="footer-faq-answer">
-              <p>Two paths: partner organizations can request the Workshop through the HMC Partner Portal at <a href="https://partner.healthmatters.clinic" target="_blank">partner.healthmatters.clinic</a>. Or become a certified Unstoppable Facilitator yourself and bring it directly to your community. <a href="./register.html">Apply for facilitator certification here</a>.</p>
+              <p>Two paths: partner organizations can request the Workshop through the HMC Partner Portal at <a href="https://partner.healthmatters.clinic" target="_blank" rel="noopener">partner.healthmatters.clinic</a>. Or become a certified Unstoppable Facilitator yourself and bring it directly to your community. <a href="./register.html">Apply for facilitator certification here</a>.</p>
             </div>
           </details>
         </div>
@@ -2017,12 +2034,51 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
   .intro-stories-dots{right:8px!important;top:50%!important;bottom:auto!important;left:auto!important;transform:translateY(-50%)!important;flex-direction:column!important}
 }
 </style>
+<!-- ============================================================
+     Hero polish (Jun 2026) — single source of truth for three defects that
+     older, conflicting .hero-title / .hero-scroll-cue rules introduced:
+       1. the oversized wordmark bled off the viewport edge on wide screens
+       2. the centered "Scroll" cue overlapped the left-anchored wordmark
+       3. the right-hand copy was low-contrast over bright photo areas
+     Layout, typography family, and content are unchanged. Loaded last so it
+     wins the cascade without having to untangle the legacy rules. ===========-->
+<style id="hmc-hero-fix-jun26">
+/* Two-sided scrim: darken the right (copy) and bottom (wordmark) so text stays
+   readable over any carousel photo. Applies at every width. */
+.hero-scrim{
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.34) 38%, rgba(0,0,0,.22) 58%, rgba(0,0,0,.52) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.08) 42%, rgba(0,0,0,.80) 100%) !important;
+}
+@media (min-width:761px){
+  /* One predictable, viewport-fit size for the wordmark. "UNSTOPPABLE" is
+     ~6.3em wide in Inter Black Italic, so 10.5vw (cap 150px) always clears the
+     side padding instead of ballooning to the legacy 16vw/260px and bleeding. */
+  .hero-title{
+    font-size:clamp(56px,8.5vw,132px) !important;
+    max-width:none !important;
+    white-space:nowrap;
+  }
+  /* Scroll cue out of the wordmark's path: pinned to the bottom-right corner
+     rather than dead-center where it collided with the wordmark. */
+  .hero-scroll-cue{
+    left:auto !important;
+    right:clamp(20px,4vw,52px) !important;
+    transform:none !important;
+  }
+  /* Slightly stronger contrast on the supporting hero copy. */
+  .hero-free{ color:rgba(255,255,255,.92) !important; }
+}
+</style>
 <script src="assets/js/hmc-parallax.js" defer></script>
-<!-- Immersive scroll stack (pinned versions). Loaded async-friendly with defer;
-     hmc-immersive.js no-ops if a lib is missing, reduced-motion is set, or embedded. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+<!-- Immersive scroll stack. Libraries are vendored locally (GSAP 3.12.5,
+     ScrollTrigger 3.12.5, Lenis 1.0.42) so the parallax layer never depends on a
+     third-party CDN being reachable, and there is no external script to tamper with.
+     Loaded with defer (executes in order); hmc-immersive.js no-ops gracefully if a
+     lib is missing, reduced-motion is set, or the page is embedded in an iframe. -->
+<script src="assets/js/vendor/gsap.min.js" defer></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/vendor/lenis.min.js" defer></script>
 <script src="assets/js/hmc-immersive.js" defer></script>
 </body>
 </html>
