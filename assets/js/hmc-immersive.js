@@ -214,7 +214,27 @@
     });
   }
 
-  /* ---------- 8. Keep ScrollTrigger honest after async layout shifts ---------- */
+  /* ---------- 8. Panel card slide-in: sections rise as stacked editorial cards ---------- */
+  // Each content panel travels y: 80px → 0 as it enters, scrubbed to scroll,
+  // so it feels physically like a card lifting into place over the section behind it.
+  gsap.utils.toArray('.mission, .intro-stories, .live-cta').forEach(function (panel) {
+    if (!panel) return;
+    gsap.fromTo(panel,
+      { y: 80 },
+      {
+        y: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: panel,
+          start: 'top 100%',
+          end: 'top 20%',
+          scrub: 0.6
+        }
+      }
+    );
+  });
+
+  /* ---------- 9. Keep ScrollTrigger honest after async layout shifts ---------- */
   window.addEventListener('load', function () { ScrollTrigger.refresh(); });
   // Images loading in (lazy) change document height; refresh once they settle.
   var refreshTimer;
