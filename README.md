@@ -55,14 +55,3 @@ No origin check is included so the same listener works for both
 ## Asset paths
 
 All assets are referenced with relative paths (`./photos/...`, `./unstoppable-logo.png`, etc.) so the page works at any subpath.
-
-## Parallax / kinetic scroll system
-
-A shared, dependency-free scroll layer lives in two files:
-
-- `assets/css/hmc-parallax.css`
-- `assets/js/hmc-parallax.js`
-
-Every page now links them: `index.html`, `register.html`, `report.html`, `creator.html`, `research-spotlights.html`, and `research-spotlight-01.html` through `-05.html`. Each page loads the CSS before `</head>`, a `.hmc-progress` scroll bar right after `<body>`, and the JS (`defer`) before `</body>`. The engine adds only — it does not touch the existing carousel, overlays, forms, count-ups, animated bars, rise-on-scroll, or custom cursor. It honors `prefers-reduced-motion` and degrades cleanly under `@media print` (progress bar hidden, transforms and reveals reset), so printing the research-spotlight pages still produces a clean PDF.
-
-**Embedding note:** the hero parallax on `index.html` and `report.html` is driven by the page's own `window` scroll position. The auto-height iframe described above does not scroll internally, so those two heroes will sit static when embedded that way (the progress bar and `.hmc-reveal` section reveals still work). To get the hero drift inside Webflow, use a fixed full-viewport iframe with internal scrolling pointing at the github.io page (so `assets/` resolves), or paste the page into a Webflow Embed where the parent window scrolls.
