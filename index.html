@@ -873,7 +873,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
 .hero-copy-grid{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)!important;align-items:end!important;gap:clamp(16px,3vw,56px)!important;width:100%!important}
 
 /* Title: bottom wordmark, full-width, row 2 */
-.hero-title{grid-column:1/-1!important;grid-row:2!important;color:#fff!important;font-style:italic!important;font-weight:900!important;letter-spacing:-.048em!important;line-height:.84!important;font-size:clamp(64px,12.5vw,182px)!important;text-shadow:0 6px 44px rgba(0,0,0,.5)!important;text-transform:uppercase!important;max-width:none!important;margin:clamp(16px,2.5vw,36px) 0 0!important;pointer-events:none!important;text-align:left!important}
+.hero-title{grid-column:1/-1!important;grid-row:2!important;color:#fff!important;font-style:italic!important;font-weight:900!important;letter-spacing:-.048em!important;line-height:.84!important;font-size:clamp(44px,5vw,75px)!important;text-shadow:0 6px 44px rgba(0,0,0,.5)!important;text-transform:uppercase!important;max-width:none!important;margin:clamp(16px,2.5vw,36px) 0 0!important;pointer-events:none!important;text-align:left!important}
 
 /* Content block: upper right, row 1 */
 .hero-right{grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;gap:12px!important;pointer-events:all!important;margin-bottom:clamp(6px,1vw,14px)!important;align-items:flex-start!important}
@@ -885,8 +885,10 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
 .hero-scroll-cue{position:absolute!important;z-index:5!important;left:50%!important;bottom:clamp(24px,4.5vh,56px)!important;transform:translateX(-50%)!important;width:78px!important;height:78px!important;border-radius:50%!important;border:1.5px solid rgba(255,255,255,.72)!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;pointer-events:none!important;color:rgba(255,255,255,.88)!important;font-size:8px!important;font-weight:800!important;letter-spacing:.14em!important;text-transform:uppercase!important;text-align:center!important}
 .hero-scroll-cue span{display:block!important;line-height:1.3!important}
 
-/* Cursor: thin ring (not dark blob) */
-.site-cursor{width:80px!important;height:80px!important;background:transparent!important;border:1.5px solid rgba(255,255,255,.60)!important;font-size:0!important;backdrop-filter:none!important}
+/* Hide static scroll-cue — SCROLL DOWN only shows on cursor */
+.hero-scroll-cue{display:none!important}
+/* Cursor: 84px to match JS translate offset (x-42); show Scroll Down text */
+.site-cursor{width:84px!important;height:84px!important;font-size:8.5px!important;line-height:1.3!important;text-align:center!important;font-weight:800!important;letter-spacing:.1em!important;text-transform:uppercase!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(10,10,10,.50)!important;backdrop-filter:blur(4px)!important;border:1.5px solid rgba(255,255,255,.7)!important;color:#fff!important}
 
 /* Mobile */
 @media(max-width:760px){
@@ -934,7 +936,6 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
       </div>
     </div>
   </div>
-  <div class="hero-scroll-cue" aria-hidden="true"><span>Scroll</span><span>Down</span></div>
 </section>
 
 <!-- ================ B. SLIDER MISSION (2 slides, lavender, right-side dots) ================ -->
