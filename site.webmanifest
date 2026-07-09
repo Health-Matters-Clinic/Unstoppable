@@ -1,0 +1,18 @@
+{
+  "name": "Unstoppable by Health Matters Clinic",
+  "short_name": "Unstoppable",
+  "description": "Free community mental health workshops, wellness events, and digital tools for Black and underserved Los Angeles.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "assets/site/hmc-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
