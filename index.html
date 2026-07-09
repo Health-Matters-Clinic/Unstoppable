@@ -85,7 +85,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .site-cursor.on-clickable{width:46px;height:46px;background:#233dff;border-color:#233dff}
 .site-cursor.on-clickable span{display:none}
 .site-cursor.on-clickable::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff}
-.has-custom-cursor body,.has-custom-cursor a,.has-custom-cursor button,.has-custom-cursor [role=button],.has-custom-cursor .hero,.has-custom-cursor .mission,.has-custom-cursor .intro-stories,.has-custom-cursor .stories,.has-custom-cursor .live-cta,.has-custom-cursor .share,.has-custom-cursor .resources,.has-custom-cursor .report,.has-custom-cursor .supporters,.has-custom-cursor .footer{cursor:none}
+.has-custom-cursor,.has-custom-cursor *{cursor:none!important}
 @media (hover:none),(pointer:coarse){.site-cursor{display:none!important}.has-custom-cursor,.has-custom-cursor *{cursor:auto!important}}
 
 /* Skip nav */
@@ -926,7 +926,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
     <div class="hero-copy-grid">
       <h1 class="hero-title"><span data-hero-word>Unstoppable</span></h1>
       <div class="hero-right">
-        <p class="hero-free">A community movement for community wellness offering workshops, wellness events, digital tools, and community support to help you build resilience, strengthen wellbeing, and stay connected.</p>
+        <p class="hero-free">A community movement for mental wellness offering workshops, wellness events, digital tools, and community support to help you build resilience, strengthen wellbeing, and stay connected.</p>
       </div>
     </div>
   </div>
@@ -1982,12 +1982,16 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
   document.body.appendChild(c);
   document.documentElement.classList.add('has-custom-cursor');
 
-  let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
-  let x = tx, y = ty;
-  window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, {passive:true});
+  let tx = -200, ty = -200;
+  let x = -200, y = -200;
+  let started = false;
+  window.addEventListener('mousemove', e => {
+    tx = e.clientX; ty = e.clientY;
+    if (!started) { x = tx; y = ty; started = true; }
+  }, {passive:true});
   (function loop(){
-    x += (tx - x) * 0.18;
-    y += (ty - y) * 0.18;
+    x += (tx - x) * 0.28;
+    y += (ty - y) * 0.28;
     c.style.transform = 'translate3d(' + (x - 42) + 'px,' + (y - 42) + 'px,0)';
     requestAnimationFrame(loop);
   })();
@@ -2039,8 +2043,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
   .intro-stories-dots{right:8px!important;top:50%!important;bottom:auto!important;left:auto!important;transform:translateY(-50%)!important;flex-direction:column!important}
 }
 </style>
-<!-- Immersive scroll layer: Lenis smooth scroll + GSAP parallax/reveals -->
-<script src="./assets/js/vendor/lenis.min.js"></script>
+<!-- Immersive scroll layer: GSAP parallax/reveals -->
 <script src="./assets/js/vendor/gsap.min.js"></script>
 <script src="./assets/js/vendor/ScrollTrigger.min.js"></script>
 <script src="./assets/js/hmc-immersive.js"></script>
