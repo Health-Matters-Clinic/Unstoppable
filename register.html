@@ -248,6 +248,13 @@
     <!-- CEU-only fields -->
     <div class="ceu-fields hidden-fields" id="ceuFields">
       <div class="form-field">
+        <label class="form-label" for="sessionDate">Session Date <span>*</span></label>
+        <select class="form-select ceu-focus" id="sessionDate" name="sessionDate">
+          <option value="" disabled selected>Select your session</option>
+        </select>
+        <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:6px">Live Zoom session, Thursdays and Fridays 10:00 AM to 11:30 AM PT. Zoom link sent after payment is confirmed.</p>
+      </div>
+      <div class="form-field" style="margin-top:16px">
         <label class="form-label" for="licenseType">License Type <span>*</span></label>
         <select class="form-select ceu-focus" id="licenseType" name="licenseType">
           <option value="" disabled selected>Select your license board</option>
@@ -266,6 +273,7 @@
         <input class="form-input ceu-focus" type="text" id="licenseNumber" name="licenseNumber" placeholder="e.g. LCSW 12345">
       </div>
     </div>
+
 
     <!-- Facilitator-only fields -->
     <div class="facilitator-fields visible-fields" id="facilitatorFields">
@@ -331,12 +339,45 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbzPUzjEIQhwEO5uD55EK1IH
 
 let currentPathway = 'community';
 
+function getUpcomingSessions(weeks) {
+  weeks = weeks || 10;
+  var dates = [];
+  var now = new Date();
+  var start = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  var end = new Date(start.getTime() + weeks * 7 * 24 * 60 * 60 * 1000);
+  var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var d = new Date(start);
+  while (d <= end) {
+    var day = d.getDay();
+    if (day === 4 || day === 5) {
+      var label = dayNames[day] + ', ' + monthNames[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + ' - 10:00 AM to 11:30 AM PT';
+      var value = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+      dates.push({ value: value, label: label });
+    }
+    d.setDate(d.getDate() + 1);
+  }
+  return dates;
+}
+
+function populateSessionDates() {
+  var select = document.getElementById('sessionDate');
+  var sessions = getUpcomingSessions(10);
+  sessions.forEach(function(s) {
+    var opt = document.createElement('option');
+    opt.value = s.value;
+    opt.textContent = s.label;
+    select.appendChild(opt);
+  });
+}
+
 // Auto-switch if ?pathway=ceu in URL
 (function() {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('pathway') === 'ceu') {
-    window.addEventListener('DOMContentLoaded', function() { switchPathway('ceu'); });
-  }
+  var params = new URLSearchParams(window.location.search);
+  window.addEventListener('DOMContentLoaded', function() {
+    populateSessionDates();
+    if (params.get('pathway') === 'ceu') { switchPathway('ceu'); }
+  });
 })();
 
 function switchPathway(type) {
@@ -368,6 +409,7 @@ function switchPathway(type) {
   // Conditional fields
   document.getElementById('ceuFields').className = 'ceu-fields ' + (isCEU ? 'visible-fields' : 'hidden-fields');
   document.getElementById('facilitatorFields').className = 'facilitator-fields ' + (isCEU ? 'hidden-fields' : 'visible-fields');
+  document.getElementById('sessionDate').required = isCEU;
   document.getElementById('licenseType').required = isCEU;
 
   // Submit button + focus styles
@@ -399,9 +441,16 @@ async function submitForm(e) {
   btn.disabled = true;
   txt.textContent = 'Submitting...';
 
+  const sessionDateVal = document.getElementById('sessionDate').value;
+  const sessionDateLabel = sessionDateVal
+    ? (document.getElementById('sessionDate').options[document.getElementById('sessionDate').selectedIndex] || {}).text || sessionDateVal
+    : '';
+
   const data = {
     action: 'training_registration',
     pathway: currentPathway,
+    sessionDate: sessionDateVal,
+    sessionDateDisplay: sessionDateLabel,
     firstName: document.getElementById('firstName').value.trim(),
     lastName: document.getElementById('lastName').value.trim(),
     email: document.getElementById('email').value.trim(),
@@ -427,7 +476,10 @@ async function submitForm(e) {
 
   if (currentPathway === 'ceu') {
     document.getElementById('successTitle').textContent = 'Registration received.';
-    document.getElementById('successMsg').innerHTML = 'Thank you for registering for the 1.0 CE/CEU training. Our team will follow up with session details and payment. Your CE certificate will be issued upon completion. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
+    var sessionLine = sessionDateLabel ? 'Your session: <strong>' + sessionDateLabel + '</strong>. ' : '';
+    document.getElementById('successMsg').innerHTML = 'Thank you for registering for the 1.0 CE/CEU training. ' + sessionLine + 'Complete your payment below to confirm your spot. Your Zoom link and CE certificate instructions will be emailed after payment is received. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
+    var paypalBtn = document.getElementById('paypalBtn');
+    if (paypalBtn) paypalBtn.style.display = '';
   } else {
     document.getElementById('successTitle').textContent = 'Application received.';
     document.getElementById('successMsg').innerHTML = 'Thank you for applying to the Facilitator Certification program. Our team will review your application and be in touch within 3 business days. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
