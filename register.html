@@ -269,8 +269,9 @@
         </select>
       </div>
       <div class="form-field" style="margin-top:16px">
-        <label class="form-label" for="licenseNumber">License Number <span style="color:rgba(255,255,255,.3);font-weight:400">(optional, for your records)</span></label>
+        <label class="form-label" for="licenseNumber">License Number <span>*</span></label>
         <input class="form-input ceu-focus" type="text" id="licenseNumber" name="licenseNumber" placeholder="e.g. LCSW 12345">
+        <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:6px">Required by BBS, BRN, and CCAPP for your CE certificate of completion.</p>
       </div>
     </div>
 
@@ -396,14 +397,16 @@ function switchPathway(type) {
     document.getElementById('pathwayTitle').textContent = '1.0 CE/CEU Approved Training';
     document.getElementById('pathwayDesc').innerHTML = 'A 1.0 CE/CEU approved training on disability-inclusive, culturally affirming mental health frameworks. Approved by the Los Angeles County Department of Mental Health for BBS, BRN, CCAPP, and Psychology license renewal. Delivered by Erica Robinson, BBA and Dr. Leon Maultsby, DBH.';
     document.getElementById('pathwayTags').innerHTML = '<span class="pathway-tag">BBS</span><span class="pathway-tag">BRN</span><span class="pathway-tag">CCAPP</span><span class="pathway-tag">Psychology</span><span class="pathway-tag">LACDMH Approved</span>';
-    document.getElementById('pathwayPrice').textContent = '$55';
-    document.getElementById('pathwayPriceNote').textContent = 'per CE hour, group rates available for 10+ staff';
+    document.getElementById('pathwayPrice').textContent = '';
+    document.getElementById('pathwayPriceNote').textContent = '';
+    document.querySelector('.pathway-info-price').style.display = 'none';
   } else {
     document.getElementById('pathwayTitle').textContent = 'Facilitator Certification';
     document.getElementById('pathwayDesc').innerHTML = 'Co-developed with Dr. Dawn Bounds, PhD, PMHNP-BC, FAAN, Founding Director of the CYFER Lab at UC Irvine. Learn to lead Unstoppable workshops using trauma-informed, culturally responsive facilitation techniques. Upon completion you will receive an official certificate and join our facilitator network.';
     document.getElementById('pathwayTags').innerHTML = '<span class="pathway-tag">CHWs</span><span class="pathway-tag">Educators</span><span class="pathway-tag">Social Workers</span><span class="pathway-tag">Volunteers</span><span class="pathway-tag">Medical Students</span>';
     document.getElementById('pathwayPrice').textContent = '$299';
     document.getElementById('pathwayPriceNote').textContent = 'per person (HMC volunteers and current partners: $199)';
+    document.querySelector('.pathway-info-price').style.display = '';
   }
 
   // Conditional fields
@@ -411,6 +414,7 @@ function switchPathway(type) {
   document.getElementById('facilitatorFields').className = 'facilitator-fields ' + (isCEU ? 'hidden-fields' : 'visible-fields');
   document.getElementById('sessionDate').required = isCEU;
   document.getElementById('licenseType').required = isCEU;
+  document.getElementById('licenseNumber').required = isCEU;
 
   // Submit button + focus styles
   const btn = document.getElementById('submitBtn');
@@ -429,7 +433,7 @@ function switchPathway(type) {
   // Update paypal button label
   const paypalBtn = document.getElementById('paypalBtn');
   if (paypalBtn) {
-    paypalBtn.title = isCEU ? 'Pay $55 per CE hour via PayPal' : 'Pay $299 ($199 HMC partners) via PayPal';
+    paypalBtn.title = 'Pay $299 ($199 HMC partners) via PayPal';
   }
   document.getElementById('successBack').className = 'success-back ' + type;
 }
@@ -477,9 +481,9 @@ async function submitForm(e) {
   if (currentPathway === 'ceu') {
     document.getElementById('successTitle').textContent = 'Registration received.';
     var sessionLine = sessionDateLabel ? 'Your session: <strong>' + sessionDateLabel + '</strong>. ' : '';
-    document.getElementById('successMsg').innerHTML = 'Thank you for registering for the 1.0 CE/CEU training. ' + sessionLine + 'Complete your payment below to confirm your spot. Your Zoom link and CE certificate instructions will be emailed after payment is received. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
+    document.getElementById('successMsg').innerHTML = 'Thank you for registering for the 1.0 CE/CEU training. ' + sessionLine + 'Our team will be in touch with your Zoom link and session details before training begins. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
     var paypalBtn = document.getElementById('paypalBtn');
-    if (paypalBtn) paypalBtn.style.display = '';
+    if (paypalBtn) paypalBtn.style.display = 'none';
   } else {
     document.getElementById('successTitle').textContent = 'Application received.';
     document.getElementById('successMsg').innerHTML = 'Thank you for applying to the Facilitator Certification program. Our team will review your application and be in touch within 3 business days. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
