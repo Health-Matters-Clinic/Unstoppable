@@ -7,7 +7,7 @@
 <meta name="description" content="A mental health and resilience course built for online creators. Recognize burnout, manage pressure, and build a sustainable creator journey. Join the interest list for the first cohort.">
 <meta property="og:title" content="The Unstoppable Creator | Health Matters Clinic">
 <meta property="og:description" content="Success online should not cost you your wellbeing. Join the interest list for the first cohort.">
-<link rel="icon" href="https://teamhmc.github.io/Unstoppable/assets/site/hmc-icon-512.png">
+<link rel="icon" href="./assets/site/hmc-icon-512.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
 <style>
   :root{--blue:#233dff;--ink:#0a0a0a;--bg:#f5f1e8;--muted:#2a2540;}
@@ -149,7 +149,7 @@
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Health Matters Clinic. 501(c)(3) Nonprofit.</span>
-    <a href="https://teamhmc.github.io/Unstoppable/">Unstoppable Home</a>
+    <a href="https://unstoppable.healthmatters.clinic/">Unstoppable Home</a>
   </div>
 </footer>
 
@@ -159,7 +159,7 @@ document.getElementById('interestForm').addEventListener('submit', function(e){
   e.preventDefault();
   document.getElementById('btnText').textContent = 'Submitting...';
   const data = {
-    action: 'training_registration',
+    action: 'creator_interest',
     pathway: 'creator-interest',
     firstName: document.getElementById('firstName').value.trim(),
     lastName: document.getElementById('lastName').value.trim(),

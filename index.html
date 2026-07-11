@@ -1718,7 +1718,7 @@ function buildCaseStudyBlock(story, index) {
   block.innerHTML = `
     <div class="case-study-image">
       <span class="case-study-tag">${story.tag}</span>
-      <img src="${story.thumbnail}" alt="${story.name}">
+      <img src="${story.thumbnail}" alt="${story.name}" loading="lazy" decoding="async">
     </div>
     <div class="case-study-content">
       <h3 class="case-study-title">${story.name}</h3>
