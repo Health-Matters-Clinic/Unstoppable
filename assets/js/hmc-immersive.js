@@ -214,6 +214,62 @@
     });
   }
 
+  /* ---------- 7b. Scroll-pinned slide sections (mission + intro-stories) ----------
+     The mission and intro-stories sections are full-viewport carousels that
+     auto-advance on a 2.5s timer. When the immersive layer is active we replace
+     the timer with a scroll-driven pin: the fullscreen section holds in place and
+     each scroll step advances one slide, then the page continues (the Anthropic /
+     "reveal each part on scroll" pattern). This drives the carousels' OWN exposed
+     hooks (window._hmcMission / window._hmcIntroStories: {stop, go}) so we never
+     touch their internals or the section's layout — no CSS-sticky, which is what
+     broke the mission carousel before. On touch / small screens and when the
+     immersive layer is off (iframe / reduced-motion, handled by the early return
+     above) the original auto-advance timer is left running untouched. */
+  function pinnedSlides(sectionSel, slideSel, api) {
+    var section = document.querySelector(sectionSel);
+    var n = document.querySelectorAll(slideSel).length;
+    // Guard: need the section, 2+ slides, and the carousel's exposed hooks.
+    if (!section || n < 2 || !api || typeof api.go !== 'function') return;
+    // Desktop/pointer only. Keep native timer-based advance on touch/small screens.
+    if (window.matchMedia('(max-width: 820px)').matches) return;
+    try {
+      if (typeof api.stop === 'function') api.stop(); // stop the auto-advance timer
+      // Force the section to fill the viewport so each slide is truly fullscreen.
+      // The mission section is otherwise sized to its content (~576px), so its
+      // slides never fill the screen the way the intro-stories slides do. Applied
+      // inline and only on immersive desktop (this function has already bailed on
+      // touch / iframe / reduced-motion), so the mobile + Webflow-embed timer path
+      // is untouched and this is fully reversible.
+      var vh = window.innerHeight;
+      section.style.setProperty('min-height', vh + 'px', 'important');
+      section.style.setProperty('height', vh + 'px', 'important');
+      var last = -1;
+      // Give each slide an equal segment of the pinned scroll and snap to segment
+      // CENTERS, so scrolling always settles on a fully on-screen slide and never
+      // on the pin's engage/release edge (which let the adjacent section bleed in).
+      var centers = [];
+      for (var c = 0; c < n; c++) centers.push((c + 0.5) / n);
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: '+=' + Math.round(n * window.innerHeight),
+        pin: true,
+        pinSpacing: true,
+        scrub: true,
+        snap: { snapTo: centers, duration: 0.25, ease: 'power1.inOut' },
+        onUpdate: function (self) {
+          var i = Math.min(n - 1, Math.floor(self.progress * n));
+          if (i !== last) { last = i; api.go(i); }
+        }
+      });
+    } catch (e) {
+      // Safety: if the pin setup fails, land on the first slide so nothing freezes hidden.
+      try { api.go(0); } catch (e2) {}
+    }
+  }
+  pinnedSlides('.mission', '.mission-slide', window._hmcMission);
+  pinnedSlides('.intro-stories', '.intro-stories-slide', window._hmcIntroStories);
+
   /* ---------- 8. Keep ScrollTrigger honest after async layout shifts ---------- */
   window.addEventListener('load', function () { ScrollTrigger.refresh(); });
   // Images loading in (lazy) change document height; refresh once they settle.

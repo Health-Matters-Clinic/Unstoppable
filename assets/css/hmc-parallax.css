@@ -19,5 +19,11 @@
 /* Immersive reveal layer (driven by GSAP in hmc-immersive.js). Only hides up-front
    when JS-driven motion is actually active, so content is never stuck hidden. */
 html.hmc-immersive [data-reveal]{will-change:transform,opacity}
+/* When the immersive scroll-pin drives the slide carousels, tighten the cross-fade
+   so scrolling between slides reads as a crisp reveal instead of two slides ghosting
+   over each other. Opacity/transform TIMING only — does not touch section layout
+   (display / min-height / flex / position). */
+html.hmc-immersive .mission-slide{transition:opacity .3s ease,transform .3s ease}
+html.hmc-immersive .intro-stories-slide{transition:opacity .35s ease-in-out}
 @media(prefers-reduced-motion:reduce){.hmc-mask{animation:none}.hmc-reveal{opacity:1;transform:none;transition:none}.hmc-kinetic-row,.hmc-bg-layer,.hmc-pin-bg,[data-pin-fade],[data-layer]{transform:none!important}html.hmc-immersive [data-reveal]{opacity:1!important;transform:none!important}}
 @media print{.hmc-progress{display:none!important}.hmc-mask{-webkit-text-fill-color:var(--hmc-blue);color:var(--hmc-blue);animation:none}.hmc-reveal{opacity:1!important;transform:none!important}.hmc-bg-layer,.hmc-kinetic-row,.hmc-pin-bg,[data-pin-fade],[data-layer]{transform:none!important}html.hmc-immersive [data-reveal]{opacity:1!important;transform:none!important}}
