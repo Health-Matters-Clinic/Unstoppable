@@ -319,7 +319,7 @@
   <div class="success" id="successState">
     <div class="success-icon community" id="successIcon">&#10003;</div>
     <h2 id="successTitle">You're registered.</h2>
-    <p id="successMsg">Thank you for registering. Our team will follow up at the email you provided with session details, next steps, and payment information. Questions? Email <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>.</p>
+    <p id="successMsg">Thank you for registering. Our team will follow up at the email you provided with session details, next steps, and payment information. Questions? Email <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a>.</p>
     <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:28px;">
       <a class="paypal-btn" id="paypalBtn" href="https://www.paypal.com/paypalme/healthmattersclinic" target="_blank" rel="noopener noreferrer">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
@@ -333,7 +333,7 @@
 </div>
 
 <footer class="footer-note">
-  <p>Health Matters Clinic | 501(c)(3) Nonprofit | <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a><br>
+  <p>Health Matters Clinic | 501(c)(3) Nonprofit | <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a><br>
   CE/CEU approval issued by LACDMH Quality, Outcomes &amp; Training Division. Valid through February 2027.<br>
   Approved for BBS, BRN, CCAPP, and Psychology.</p>
 </footer>
@@ -484,12 +484,12 @@ async function submitForm(e) {
   if (currentPathway === 'ceu') {
     document.getElementById('successTitle').textContent = 'Registration received.';
     var sessionLine = sessionDateLabel ? 'Your session: <strong>' + sessionDateLabel + '</strong>. ' : '';
-    document.getElementById('successMsg').innerHTML = 'Thank you for registering for the 1.0 CE/CEU training. ' + sessionLine + 'Our team will be in touch with your Zoom link and session details before training begins. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
+    document.getElementById('successMsg').innerHTML = 'Thank you for registering for the 1.0 CE/CEU training. ' + sessionLine + 'Our team will be in touch with your Zoom link and session details before training begins. Questions? <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a>';
     var paypalBtn = document.getElementById('paypalBtn');
     if (paypalBtn) paypalBtn.style.display = 'none';
   } else {
     document.getElementById('successTitle').textContent = 'Application received.';
-    document.getElementById('successMsg').innerHTML = 'Thank you for applying to the Facilitator Certification program. Our team will review your application and be in touch within 3 business days. Questions? <a href="mailto:education@healthmatters.clinic">education@healthmatters.clinic</a>';
+    document.getElementById('successMsg').innerHTML = 'Thank you for applying to the Facilitator Certification program. Our team will review your application and be in touch within 3 business days. Questions? <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a>';
   }
 }
 </script>
