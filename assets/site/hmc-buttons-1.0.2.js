@@ -17,10 +17,24 @@
   var SELECTOR = '.hmc-btn';
 
   function label(el) {
-    // Visible text only; ignore the overlay itself and any icon markup.
-    var t = '';
-    el.childNodes.forEach(function (n) { if (n.nodeType === 3) t += n.nodeValue; });
-    return t.trim();
+    // textContent, not just direct text nodes: several buttons wrap their label
+    // in a span, and those were getting no data-hmc-label and so no hover at all.
+    return (el.textContent || '').trim();
+  }
+
+  /* The overlay covers the button, so a leading icon or dot disappears behind it
+     for the duration of the hover. Measure where the label actually starts and
+     let the overlay begin there, leaving the icon visible. Writing a custom
+     property rather than restructuring keeps this safe for React. */
+  function setOverlayInset(el) {
+    var first = el.firstElementChild;
+    if (!first) { el.style.removeProperty('--hmc-ov-left'); return; }
+    var eb = el.getBoundingClientRect();
+    var fb = first.getBoundingClientRect();
+    if (!fb.width) { el.style.removeProperty('--hmc-ov-left'); return; }
+    var gap = parseFloat(getComputedStyle(el).columnGap) || 0;
+    var left = Math.max(0, Math.round(fb.right - eb.left + gap));
+    el.style.setProperty('--hmc-ov-left', left + 'px');
   }
 
   /* True when the button already renders its own dot. Markup across the apps
@@ -47,6 +61,7 @@
     // Buttons that are icon-only have nothing to roll.
     if (!text) { el.removeAttribute('data-hmc-label'); return; }
     if (el.getAttribute('data-hmc-label') !== text) el.setAttribute('data-hmc-label', text);
+    setOverlayInset(el);
   }
 
   function run() {
