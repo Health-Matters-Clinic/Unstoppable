@@ -25,15 +25,22 @@
 .hmc-btn-primary { background: #2333df; color: #fff; }
 .hmc-btn-secondary { background: #fff; color: #1a1a1a; }
 
-/* 6px dot, injected by the JS so markup does not have to carry it */
-.hmc-btn-dot {
+/* 6px dot, drawn in CSS so no child node is added to React-owned markup.
+   currentColor gives a white dot on the primary fill and a dark one on the
+   secondary. Opt out per button with data-hmc-dot="off" (icon-led buttons). */
+.hmc-btn:not([data-hmc-dot="off"])::before {
+  content: "";
   width: 6px;
   height: 6px;
   border-radius: 50%;
+  background: currentColor;
   flex-shrink: 0;
 }
+/* Markup that ships its own dot element keeps working. */
+.hmc-btn-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .hmc-btn-primary .hmc-btn-dot { background: #fff; }
 .hmc-btn-secondary .hmc-btn-dot { background: #0f0f0f; }
+.hmc-btn:has(.hmc-btn-dot)::before { display: none; }
 
 /* Roll-up. Implemented as an overlay copy driven by a data attribute rather
    than by injecting child nodes. These surfaces are React apps, and mutating
