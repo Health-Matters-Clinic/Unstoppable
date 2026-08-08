@@ -1,0 +1,67 @@
+/* HMC shared button system.
+   Matches the canonical buttons on healthmatters.clinic so every HMC surface
+   reads the same. The roll-up hover on the main site is a Webflow IX2
+   interaction, which nothing outside Webflow inherits, so it is reimplemented
+   here in CSS. Pair with hmc-buttons-1.0.0.js, which builds the two label
+   copies the roll-up needs without touching each button's markup. */
+
+.hmc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 22px;
+  border-radius: 100px;
+  border: 1px solid #0f0f0f;
+  font-size: 16px;
+  line-height: 1.2em;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+}
+
+.hmc-btn-primary { background: #2333df; color: #fff; }
+.hmc-btn-secondary { background: #fff; color: #1a1a1a; }
+
+/* 6px dot, injected by the JS so markup does not have to carry it */
+.hmc-btn-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.hmc-btn-primary .hmc-btn-dot { background: #fff; }
+.hmc-btn-secondary .hmc-btn-dot { background: #0f0f0f; }
+
+/* Roll-up. The second copy sits one full line below and both slide up
+   together, so the label appears to be replaced by itself. */
+.hmc-btn-clip {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.2em;
+  vertical-align: bottom;
+}
+.hmc-btn-label {
+  display: block;
+  transition: transform .3s ease;
+  white-space: nowrap;
+}
+.hmc-btn-label-alt {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+}
+.hmc-btn:hover .hmc-btn-label { transform: translateY(-100%); }
+
+/* Keep the label legible on hover. Some hosts ship a global
+   `a:hover { color: ... }` that would otherwise repaint it. */
+.hmc-btn-primary:hover { color: #fff; opacity: 1; }
+.hmc-btn-secondary:hover { color: #1a1a1a; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hmc-btn-label { transition: none; }
+}
