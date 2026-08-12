@@ -68,7 +68,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   *{animation:none!important;transition:none!important}
 }
 
-/* ===== A. HERO (homeHeader) — ASICS Move Her Mind layout ===== */
+/* ===== A. HERO (homeHeader). ASICS Move Her Mind layout ===== */
 .hero{position:relative;height:100vh;height:100dvh;min-height:640px;width:100%;overflow:hidden;background:#0a0a0a;color:#fff}
 .hero-carousel{position:absolute;inset:0;z-index:0}
 .hero-slide{position:absolute;inset:0;background-color:#0a0a0a;background-size:cover;background-position:50% 25%;opacity:0;transform:scale(1.04);transition:opacity 1.4s ease-in-out}
@@ -81,7 +81,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .hero-title{color:#fff;font-style:italic;font-weight:900;letter-spacing:-.035em;line-height:.86;font-size:clamp(72px,14.5vw,220px);text-shadow:0 4px 30px rgba(0,0,0,.45);text-align:left;max-width:14ch;margin-bottom:clamp(20px,2.4vw,32px);text-transform:none}
 .hero-tagline{max-width:540px;color:#fff;font-family:'Questrial','Inter',sans-serif;font-size:clamp(15px,1.4vw,19px);line-height:1.5;font-weight:400;text-shadow:0 2px 12px rgba(0,0,0,.55);text-align:left;letter-spacing:-.005em;margin-top:18px}
 
-/* Custom site cursor — circular "Scroll Down" follower (ASICS-style) */
+/* Custom site cursor. Circular "Scroll Down" follower (ASICS-style) */
 .site-cursor{position:fixed;top:0;left:0;width:84px;height:84px;border-radius:50%;background:rgba(10,10,10,.55);backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;pointer-events:none;z-index:10000;border:1.5px solid rgba(255,255,255,.7);will-change:transform;transition:width .2s ease,height .2s ease,background .2s ease,border-color .2s ease}
 .site-cursor span{line-height:1.15;display:inline-block}
 .site-cursor.on-clickable{width:46px;height:46px;background:#233dff;border-color:#233dff}
@@ -132,7 +132,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .hero-ctas,.hero-cta-primary,.hero-cta-secondary,.hero-right a{pointer-events:all!important;}
 @media(max-width:760px){.hero-ctas{flex-direction:column;gap:10px;}.hero-cta-primary,.hero-cta-secondary{width:100%;justify-content:center;}}
 
-/* Embed mode — footer + FAQ live in the wrapping Webflow page */
+/* Embed mode. Footer + FAQ live in the wrapping Webflow page */
 html.is-embedded .footer{display:none}
 html.is-embedded body{background:transparent}
 
@@ -732,7 +732,7 @@ html.is-embedded body{background:transparent}
 body{background:var(--hmc-bg);color:var(--hmc-text);}
 body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro p,.share-intro p,.submit-block p,.resources-intro p,.resource-card .resource-title,.report-text,.digital-companion-body,.dc-card-desc,.facilitator-sub,.facilitator-card-body,.facilitator-card-detail,.footer-brand-blurb,.footer-faq-intro,.footer-faq-answer{font-family:'Inter',sans-serif;}
 
-/* HMC pill button style — primary: blue bg + dark border; secondary: white bg + dark border */
+/* HMC pill button style. Primary is blue bg + dark border, secondary is white bg + dark border */
 .btn-hmc,.share-cta,.submit-form .submit-btn,.report-btn,.facilitator-card-cta,.resource-action{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
   min-height:48px!important;padding:13px 25px!important;border-radius:999px!important;
@@ -874,10 +874,10 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
    Row 2 = UNSTOPPABLE wordmark (full width) */
 .hero-copy-grid{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)!important;align-items:end!important;gap:clamp(16px,3vw,56px)!important;width:100%!important}
 
-/* Title: left col, row 1 — aligns bottom edge with right content block */
+/* Title sits in left col, row 1, and aligns its bottom edge with the right content block */
 .hero-title{grid-column:1!important;grid-row:1!important;color:#fff!important;font-style:italic!important;font-weight:900!important;letter-spacing:-.048em!important;line-height:.84!important;font-size:clamp(44px,5vw,75px)!important;text-shadow:0 6px 44px rgba(0,0,0,.5)!important;text-transform:uppercase!important;max-width:none!important;margin:0!important;pointer-events:none!important;text-align:left!important}
 
-/* Content block: right col, row 1 — bottom-aligns with UNSTOPPABLE wordmark */
+/* Content block sits in right col, row 1, and bottom-aligns with the UNSTOPPABLE wordmark */
 .hero-right{grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;gap:10px!important;pointer-events:all!important;margin-bottom:clamp(6px,1vw,14px)!important;align-items:flex-start!important}
 .hero-tagline{color:#fff!important;font-weight:700!important;font-size:clamp(17px,1.5vw,22px)!important;line-height:1.3!important;text-shadow:0 2px 12px rgba(0,0,0,.55)!important;margin:0 0 4px!important;max-width:none!important;background:none!important;border:none!important;backdrop-filter:none!important;padding:0!important}
 .hero-free{color:rgba(255,255,255,.80)!important;font-size:clamp(13px,1.1vw,15px)!important;line-height:1.58!important;max-width:420px!important;letter-spacing:0!important;text-transform:none!important;font-weight:400!important}
@@ -887,7 +887,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
 .hero-scroll-cue{position:absolute!important;z-index:5!important;left:50%!important;bottom:clamp(24px,4.5vh,56px)!important;transform:translateX(-50%)!important;width:78px!important;height:78px!important;border-radius:50%!important;border:1.5px solid rgba(255,255,255,.72)!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:2px!important;pointer-events:none!important;color:rgba(255,255,255,.88)!important;font-size:8px!important;font-weight:800!important;letter-spacing:.14em!important;text-transform:uppercase!important;text-align:center!important}
 .hero-scroll-cue span{display:block!important;line-height:1.3!important}
 
-/* Hide static scroll-cue — SCROLL DOWN only shows on cursor */
+/* Hide static scroll-cue. SCROLL DOWN only shows on the cursor */
 .hero-scroll-cue{display:none!important}
 /* Cursor: 84px to match JS translate offset (x-42); show Scroll Down text */
 .site-cursor{width:84px!important;height:84px!important;font-size:8.5px!important;line-height:1.3!important;text-align:center!important;font-weight:800!important;letter-spacing:.1em!important;text-transform:uppercase!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(10,10,10,.50)!important;backdrop-filter:blur(4px)!important;border:1.5px solid rgba(255,255,255,.7)!important;color:#fff!important}
@@ -903,8 +903,33 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
   .hero-cta-primary,.hero-cta-secondary{width:100%!important;justify-content:center!important}
   .hero-scroll-cue{display:none!important}
 }
+
+/* ===== NEXT TRAINING SESSIONS =====
+   Scoped to the training area. Class names are unique to this block, so nothing
+   here can reach the mission carousel or any other section. */
+/* The cards are column flex containers, so a bare inline-flex button would be
+   stretched to the full card width. Pin it to the start instead. */
+.facilitator-card>.hmc-btn{align-self:flex-start;position:relative;z-index:1;}
+.training-next{margin-top:clamp(32px,4vw,52px);background:#fff;border:1px solid rgba(10,10,10,.1);border-radius:22px;padding:clamp(26px,3.4vw,44px);box-shadow:0 18px 48px rgba(10,10,10,.06);}
+.training-next-label{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--hmc-primary);margin-bottom:10px;}
+.training-next-title{font-style:italic;font-weight:900;font-size:clamp(28px,3.4vw,44px);line-height:.95;letter-spacing:-.02em;color:var(--hmc-text);margin:0 0 clamp(18px,2.2vw,26px);}
+.training-slot-list{display:flex;flex-direction:column;}
+.training-slot-list.has-slots{border-top:1px solid rgba(10,10,10,.09);}
+.training-slot{display:flex;align-items:baseline;gap:clamp(10px,2vw,26px);padding:15px 0;border-bottom:1px solid rgba(10,10,10,.09);flex-wrap:wrap;}
+.training-slot-date{font-weight:800;font-size:clamp(15px,1.5vw,17px);color:var(--hmc-text);flex:0 0 auto;min-width:14ch;}
+.training-slot-name{font-size:clamp(14px,1.4vw,16px);font-weight:600;color:var(--hmc-text);flex:1 1 200px;}
+.training-slot-meta{font-size:13px;color:var(--hmc-muted);opacity:.75;flex:0 0 auto;}
+.training-slot-empty{font-size:clamp(14.5px,1.5vw,16.5px);line-height:1.6;color:var(--hmc-muted);max-width:58ch;margin:0;}
+.training-next-foot{display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,2.4vw,32px);margin-top:clamp(20px,2.6vw,30px);flex-wrap:wrap;}
+.training-next-foot p{font-size:14px;line-height:1.6;color:var(--hmc-muted);max-width:44ch;margin:0;}
+@media(max-width:720px){
+  .training-next-foot{flex-direction:column;align-items:flex-start;}
+  .training-slot-date{flex:1 1 100%;min-width:0;}
+  .training-slot-meta{flex:1 1 100%;}
+}
 </style>
 <link rel="stylesheet" href="./assets/css/hmc-parallax.css">
+<link rel="stylesheet" href="./assets/site/hmc-buttons-1.0.3.css">
 </head>
 <body>
 <a class="skip-nav" href="#mission">Skip to main content</a>
@@ -1249,15 +1274,15 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
     <div class="impact-grid rise-on-scroll">
       <div class="impact-stat">
         <span class="impact-num">69%</span>
-        <span class="impact-label">of participants reported increased comfort discussing mental health — up from 28%</span>
+        <span class="impact-label">of participants reported increased comfort discussing mental health, up from 28%</span>
       </div>
       <div class="impact-stat">
         <span class="impact-num">58%</span>
-        <span class="impact-label">increased awareness of community mental health resources — up from 21%</span>
+        <span class="impact-label">increased awareness of community mental health resources, up from 21%</span>
       </div>
       <div class="impact-stat">
         <span class="impact-num">53%</span>
-        <span class="impact-label">felt better equipped to support others in their community — up from 22%</span>
+        <span class="impact-label">felt better equipped to support others in their community, up from 22%</span>
       </div>
       <div class="impact-stat">
         <span class="impact-num">LACDMH</span>
@@ -1345,7 +1370,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
     <div class="facilitator-head rise-on-scroll">
       <span class="facilitator-eyebrow">Train with Unstoppable</span>
       <h2 class="facilitator-title">Teach it.<br>Lead it.<br>Own it.</h2>
-      <p class="facilitator-sub">Two pathways to deepen your impact: whether you're building a career in community health or renewing your professional license.</p>
+      <p class="facilitator-sub">Both training pathways start the same way. Create your Health Matters Clinic account, then choose the session that fits your license or your community work.</p>
     </div>
 
     <!-- Attend a Workshop CTA -->
@@ -1366,26 +1391,23 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
         <p class="facilitator-card-body">The Unstoppable Facilitator Certification trains community health workers, educators, social workers, and advocates to lead mental health workshops using the Unstoppable curriculum. Co-developed with Dr. Dawn Bounds, PhD, PMHNP-BC, FAAN, Founding Director of the CYFER Lab at UC Irvine.</p>
         <div class="facilitator-card-details">
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>Trauma-informed facilitation training</span>
           </div>
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>Culturally responsive engagement techniques</span>
           </div>
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>Official certificate of completion</span>
           </div>
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>Open to CHWs, educators, social workers, volunteers</span>
           </div>
         </div>
-        <a class="facilitator-card-cta" href="./register.html">
-          <span>Apply for the Next Cohort</span>
-          <span>&#8594;</span>
-        </a>
+        <a class="hmc-btn hmc-btn-primary" data-hmc-label="Create Account" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
       </div>
 
       <!-- CEU Professional Card -->
@@ -1395,31 +1417,54 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
         <p class="facilitator-card-body">A 1.0 CE/CEU approved training on disability-inclusive, culturally affirming mental health frameworks. Approved by the Los Angeles County Department of Mental Health, Quality, Outcomes &amp; Training Division. Applicable to license renewal across four boards.</p>
         <div class="facilitator-card-details">
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>BBS: LCSW, LMFT, LPCC, LEP license renewal</span>
           </div>
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>BRN: Registered Nurse license renewal</span>
           </div>
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>CCAPP: Addiction counselor CE hours</span>
           </div>
           <div class="facilitator-card-detail">
-            <span class="facilitator-card-detail-icon">✓</span>
+            <span class="facilitator-card-detail-icon">&#10003;</span>
             <span>Psychology board approved</span>
           </div>
         </div>
-        <a class="facilitator-card-cta" href="./register.html?pathway=ceu">
-          <span>Register for the Next Session</span>
-          <span>&#8594;</span>
-        </a>
+        <a class="hmc-btn hmc-btn-primary" data-hmc-label="Create Account" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
       </div>
 
     </div>
 
+    <!-- Next scheduled sessions. Rendered from real data only. See the data
+         block at the bottom of this file. Never shows a placeholder date. -->
+    <div class="training-next rise-on-scroll" id="training-next">
+      <span class="training-next-label">Next Sessions</span>
+      <h3 class="training-next-title">When we train.</h3>
+      <div class="training-slot-list" id="trainingSlotList">
+        <p class="training-slot-empty">No dates are on the calendar right now. Create your account and you will see the next session the day it opens.</p>
+      </div>
+      <div class="training-next-foot">
+        <p>Registration runs through your account. One account covers facilitator certification and CE/CEU sessions.</p>
+        <a class="hmc-btn hmc-btn-secondary" data-hmc-label="Create Account" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
+      </div>
+    </div>
 
+    <div class="facilitator-approval rise-on-scroll">
+      <span class="facilitator-approval-label">CE/CEU Approval</span>
+      <p class="facilitator-approval-text">Approved by the Los Angeles County Department of Mental Health, Quality, Outcomes and Training Division, for 1.0 CE/CEU hours. Approved February 27, 2026. Renewal due February 27, 2027.</p>
+      <div class="facilitator-approval-badges">
+        <span class="facilitator-approval-badge">BBS</span>
+        <span class="facilitator-approval-badge">BRN</span>
+        <span class="facilitator-approval-badge">CCAPP</span>
+        <span class="facilitator-approval-badge">Psychology</span>
+        <span class="facilitator-approval-badge">LACDMH Approved</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- ================ I. FOOTER (with FAQ inside it) ================ -->
@@ -1439,7 +1484,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
             <summary>What is the Workshop?</summary>
             <div class="footer-faq-answer">
               <p>The Power of Healing &amp; Growth is HMC's flagship in-person workshop, recognized by LACDMH. Five healing-centered modules delivered in a single day, designed to move participants from "I do not talk about this" to "I am ready to keep talking."</p>
-              <p>Hosted at community centers and partner clinics, attendance is always free for everyone. Licensed professionals who want CE/CEU credit can add an optional certificate for a processing fee.</p>
+              <p>Hosted at community centers and partner clinics, attendance is always free for everyone. Licensed professionals attend the same workshop and can claim 1.0 CE/CEU hours toward license renewal.</p>
             </div>
           </details>
           <details class="footer-faq-item">
@@ -1457,13 +1502,13 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
           <details class="footer-faq-item">
             <summary>Are continuing education (CEU) credits available?</summary>
             <div class="footer-faq-answer">
-              <p>Yes. The Unstoppable training is approved by the Los Angeles County Department of Mental Health for 1.0 CE/CEU hours, recognized by BBS (LCSW, LMFT, LPCC), BRN (Registered Nurses), CCAPP (addiction counselors), and Psychology. Attending the workshop is free; the CE/CEU certificate itself is issued for a processing fee. Licensed professionals can <a href="./register.html?pathway=ceu">register here</a>.</p>
+              <p>Yes. The Unstoppable training is approved by the Los Angeles County Department of Mental Health for 1.0 CE/CEU hours, recognized by BBS (LCSW, LMFT, LPCC), BRN (Registered Nurses), CCAPP (addiction counselors), and Psychology. The approval was issued February 27, 2026 and runs through February 27, 2027. Licensed professionals start by creating an account at <a href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">hub.healthmatters.clinic</a>, which is where sessions are booked and certificates are issued.</p>
             </div>
           </details>
           <details class="footer-faq-item">
             <summary>How do I bring it to my community?</summary>
             <div class="footer-faq-answer">
-              <p>Two paths: partner organizations can request the Workshop through the HMC Partner Portal at <a href="https://partner.healthmatters.clinic" target="_blank" rel="noopener noreferrer">partner.healthmatters.clinic</a>. Or become a certified Unstoppable Facilitator yourself and bring it directly to your community. <a href="./register.html">Apply for facilitator certification here</a>.</p>
+              <p>Two paths: partner organizations can request the Workshop through the HMC Partner Portal at <a href="https://partner.healthmatters.clinic" target="_blank" rel="noopener noreferrer">partner.healthmatters.clinic</a>. Or become a certified Unstoppable Facilitator yourself and bring it directly to your community. Create an account at <a href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">hub.healthmatters.clinic</a> to apply.</p>
             </div>
           </details>
         </div>
@@ -1573,7 +1618,7 @@ body p,.hero-tagline,.mission-slide p,.intro-stories-slide .body,.stories-intro 
         <a href="#share-your-story">Share Your Story</a>
         <a href="#report">The Report</a>
         <a href="https://healthmattersclinic.gumroad.com/l/unstoppable" target="_blank" rel="noopener noreferrer">Download the Guide</a>
-        <a href="./register.html">Facilitator Certification</a>
+        <a href="#facilitator">Facilitator Certification</a>
         <a href="./creator.html">The Unstoppable Creator</a>
       </div>
       <div class="footer-col">
@@ -1620,13 +1665,13 @@ const stories = [
     name: 'The Silent Weight of Stigma',
     author: 'Alang, S. M. (2019)',
     thumbnail: './photos/cs-alang.png',
-    citation: 'Alang, S. M. (2019). Mental health care among Blacks in America: Confronting racism and constructing solutions. Health Services Research, 54(2), 346–355.',
+    citation: 'Alang, S. M. (2019). Mental health care among Blacks in America: Confronting racism and constructing solutions. Health Services Research, 54(2), 346\u2013355.',
     scholarUrl: 'https://doi.org/10.1111/1475-6773.13115',
     body: {
       featureImage: './photos/cs-alang.png',
-      p1: 'Many Black adults who need mental health support never receive it. A 2019 study found that about 10 percent of Black adults reported unmet mental health needs — nearly double the rate of the general population.',
+      p1: 'Many Black adults who need mental health support never receive it. A 2019 study found that about 10 percent of Black adults reported unmet mental health needs \u2014 nearly double the rate of the general population.',
       p2: 'Cost and lack of insurance were the most commonly cited reasons for going without care. But the research also uncovered something deeper: fear of being judged, distrust of healthcare systems rooted in historical harm, and the experience of discrimination in clinical settings all kept people from asking for help even when they could afford to.',
-      p3: 'One of the study\'s most striking findings was that Black adults with higher levels of education were more likely to report stigma as a barrier — not less. The pressure to appear strong and self-sufficient does not ease with education. For many, it intensifies.',
+      p3: 'One of the study\'s most striking findings was that Black adults with higher levels of education were more likely to report stigma as a barrier \u2014 not less. The pressure to appear strong and self-sufficient does not ease with education. For many, it intensifies.',
       takeaway: 'Access matters. Trust matters too.<br><br>Mental health support works best when people feel respected, understood, and safe enough to ask for help. Reducing barriers means more than opening doors. It means making sure care is worth walking through.',
       food: 'What would make it easier for you or someone you care about to reach out when support is needed?',
       pullquote: 'Access isn\'t the finish line. Trust is.',
@@ -1658,11 +1703,11 @@ const stories = [
     name: 'The Long Road to Getting Help',
     author: 'Planey, A. M., et al. (2019)',
     thumbnail: './photos/cs-lindsey.png',
-    citation: 'Planey, A. M., Smith, S. M. N., Moore, S., & Walker, T. D. (2019). Barriers and facilitators to mental health help-seeking among African American youth and their families: A systematic review study. Children and Youth Services Review, 101, 190–200.',
+    citation: 'Planey, A. M., Smith, S. M. N., Moore, S., & Walker, T. D. (2019). Barriers and facilitators to mental health help-seeking among African American youth and their families: A systematic review study. Children and Youth Services Review, 101, 190\u2013200.',
     scholarUrl: 'https://doi.org/10.1016/j.childyouth.2019.04.001',
     body: {
       featureImage: './photos/cs-lindsey.png',
-      p1: 'Black youth need mental health support at rates equal to or higher than their peers. Yet they use mental health services at significantly lower rates. A 2019 systematic review — drawing on studies published over nearly two decades — examined why.',
+      p1: 'Black youth need mental health support at rates equal to or higher than their peers. Yet they use mental health services at significantly lower rates. A 2019 systematic review \u2014 drawing on studies published over nearly two decades \u2014 examined why.',
       p2: 'The research identified barriers at every level. Youth reported fears of being labeled, distrust of providers who did not look like them or understand their lives, and concerns about what getting help would mean in their community. At the family and system level, barriers included cost, limited insurance, transportation gaps, and providers with little cultural awareness.',
       p3: 'But the research also documented what opens doors. Black youth were more likely to seek and stay in care when they had a provider who shared their cultural background, when trusted adults in their lives helped connect them to support, and when relationships with providers felt respectful and honest. Trust and connection were as important as location and cost.',
       takeaway: 'Getting help is not just about knowing where to go. It depends on whether the door feels safe to walk through.<br><br>When care is built on trust and community, it works.',
@@ -1677,7 +1722,7 @@ const stories = [
     name: 'Strength at a Cost',
     author: 'Jones, M. K., et al. (2025)',
     thumbnail: './photos/cs-abrams.png',
-    citation: 'Jones, M. K., Hill-Jarrett, T. G., & Jean-Ceide, C. (2025). The Strong Black Woman Schema and mental health: Examining the role of personal mastery. Journal of Black Psychology, 51(5), 617–641.',
+    citation: 'Jones, M. K., Hill-Jarrett, T. G., & Jean-Ceide, C. (2025). The Strong Black Woman Schema and mental health: Examining the role of personal mastery. Journal of Black Psychology, 51(5), 617\u2013641.',
     scholarUrl: 'https://doi.org/10.1177/00957984241308778',
     body: {
       featureImage: './photos/cs-abrams.png',
@@ -2006,7 +2051,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
     el.addEventListener('mouseleave', () => c.classList.remove('on-clickable'));
   }
   document.querySelectorAll('a, button, [role=button], input[type=submit], input[type=button], summary').forEach(bind);
-  // Re-bind for dynamically inserted nodes (case-study CTAs, etc.) — runs once after build
+  // Re-bind for dynamically inserted nodes (case-study CTAs, etc). Runs once after build
   setTimeout(() => document.querySelectorAll('a, button, [role=button], summary').forEach(bind), 200);
 
   window.addEventListener('mouseleave', () => { c.style.opacity = '0'; });
@@ -2057,14 +2102,145 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
   }
   .facilitator{padding-top:clamp(44px,8vw,72px)!important;padding-bottom:clamp(44px,8vw,72px)!important;}
   .case-studies-stack{gap:clamp(44px,8vw,72px)!important;}
-  /* Hero title — prevent bleed beyond screen on mobile */
+  /* Hero title. Prevent bleed beyond screen on mobile */
   .hero-title{font-size:clamp(44px,13vw,96px)!important;letter-spacing:-.04em!important;}
-  /* Hero right paragraph — readable on small screen */
+  /* Hero right paragraph. Readable on small screen */
   .hero-free{font-size:14px!important;max-width:calc(100vw - 48px)!important;}
   /* Eyebrow containers above titles (order:-1 set inline per section above) */
   .stories-intro,.share-intro,.resources-intro{margin-bottom:4px!important;}
 }
 </style>
+<!-- ==================== NEXT TRAINING SESSIONS ==================== -->
+<script>
+/* Upcoming Unstoppable training sessions.
+
+   Two sources, both real. Nothing below is a placeholder and the section never
+   prints a date it cannot stand behind.
+
+   1. TRAINING_SLOTS. Add confirmed sessions here, one object per session, and
+      only dates that are actually booked:
+
+        { date: '2026-09-17',                 // required, YYYY-MM-DD
+          title: 'Facilitator Certification', // required
+          time: '10:00 AM to 11:30 AM PT',    // optional
+          format: 'Live on Zoom' }            // optional
+
+      Leave the array empty and the section keeps the written empty state, which
+      sends people to create an account rather than showing an invented date.
+
+   2. The live HMC events feed. Any published event whose title or program names
+      a training, certification or CE/CEU session is picked up automatically, so
+      a session scheduled in the portal shows here with no further code change.
+      Community workshops, fairs and outreach events are not trainings and are
+      deliberately not matched.
+
+   Past dates are dropped. The four soonest are shown. Text is written with
+   textContent, never innerHTML, so feed copy cannot inject markup. */
+(function(){
+  var TRAINING_SLOTS = [];
+
+  var FEED = 'https://volunteer.healthmatters.clinic/api/public/events';
+  var IS_TRAINING = /facilitator|certification|continuing education|ce\/ceu|\bceus?\b|\btraining\b/i;
+  var DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var list = document.getElementById('trainingSlotList');
+  if (!list) return;
+
+  /* Parsed as a local date on purpose. new Date('2026-09-17') is UTC midnight,
+     which reads as the day before in Los Angeles. */
+  function toLocalDate(iso){
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ''));
+    if (!m) return null;
+    var d = new Date(+m[1], +m[2] - 1, +m[3]);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  function dateLabel(d){
+    return DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+
+  function clean(v){
+    var s = String(v == null ? '' : v).trim();
+    return (!s || s.toUpperCase() === 'TBD') ? '' : s;
+  }
+
+  function normalise(raw){
+    var d = toLocalDate(raw.date);
+    var title = clean(raw.title);
+    if (!d || !title) return null;
+    return { d: d, title: title, time: clean(raw.time), format: clean(raw.format) };
+  }
+
+  function render(slots){
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    var seen = {};
+    var rows = slots
+      .map(normalise)
+      .filter(function(s){ return s && s.d >= today; })
+      .sort(function(a, b){ return a.d - b.d; })
+      .filter(function(s){
+        var key = s.d.getTime() + '|' + s.title.toLowerCase();
+        if (seen[key]) return false;
+        seen[key] = 1;
+        return true;
+      })
+      .slice(0, 4);
+
+    // No confirmed dates means the written empty state stays exactly as it is.
+    if (!rows.length) return;
+
+    var frag = document.createDocumentFragment();
+    rows.forEach(function(s){
+      var row = document.createElement('div');
+      row.className = 'training-slot';
+
+      var date = document.createElement('span');
+      date.className = 'training-slot-date';
+      date.textContent = dateLabel(s.d);
+      row.appendChild(date);
+
+      var name = document.createElement('span');
+      name.className = 'training-slot-name';
+      name.textContent = s.title;
+      row.appendChild(name);
+
+      var meta = [s.time, s.format].filter(Boolean).join(', ');
+      if (meta) {
+        var m = document.createElement('span');
+        m.className = 'training-slot-meta';
+        m.textContent = meta;
+        row.appendChild(m);
+      }
+      frag.appendChild(row);
+    });
+
+    list.textContent = '';
+    list.appendChild(frag);
+    list.className = 'training-slot-list has-slots';
+  }
+
+  render(TRAINING_SLOTS);
+
+  /* Then top up from the live feed. Failures are silent by design: a feed
+     outage must not replace real copy with an error message. */
+  if (!window.fetch) return;
+  fetch(FEED, { credentials: 'omit' })
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(events){
+      if (!Array.isArray(events)) return;
+      var found = events.filter(function(e){
+        return e && IS_TRAINING.test(String(e.title || '') + ' ' + String(e.program || ''));
+      }).map(function(e){
+        return { date: e.date, title: e.title, time: e.time, format: e.location };
+      });
+      if (found.length) render(TRAINING_SLOTS.concat(found));
+    })
+    .catch(function(){});
+})();
+</script>
+
 <!-- Immersive scroll layer: GSAP parallax/reveals -->
 <script src="./assets/js/vendor/gsap.min.js"></script>
 <script src="./assets/js/vendor/ScrollTrigger.min.js"></script>

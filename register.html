@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Register — Unstoppable Facilitator & CEU Training | Health Matters Clinic</title>
+  <title>Register for Unstoppable Facilitator and CEU Training | Health Matters Clinic</title>
   <meta name="description" content="Register for the Unstoppable Facilitator Certification or earn 1.0 LACDMH-approved CE/CEU hours. Open to community health workers, educators, LCSWs, LMFTs, nurses, and more.">
-  <meta property="og:title" content="Register — Unstoppable Facilitator & CEU Training | Health Matters Clinic">
+  <meta property="og:title" content="Register for Unstoppable Facilitator and CEU Training | Health Matters Clinic">
   <meta property="og:description" content="Register for the Unstoppable Facilitator Certification or earn 1.0 LACDMH-approved CE/CEU hours. Open to community health workers, educators, LCSWs, LMFTs, nurses, and more.">
   <meta property="og:image" content="https://res.cloudinary.com/dh88btcdz/image/upload/w_1400,q_auto:eco,f_auto/v1781122067/DSC_3421_nzsg0y.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,8 +52,6 @@
     .pathway-tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;padding:5px 12px;border-radius:100px}
     .community .pathway-tag{background:rgba(35,61,255,.2);color:#7b9fff;border:1px solid rgba(35,61,255,.3)}
     .ceu .pathway-tag{background:rgba(18,192,107,.12);color:#12c06b;border:1px solid rgba(18,192,107,.25)}
-    .pathway-info-price{margin-top:18px;font-size:13px;color:rgba(255,255,255,.4);padding-top:18px;border-top:1px solid rgba(255,255,255,.06)}
-    .pathway-info-price strong{font-size:22px;font-weight:900;color:#fff;font-style:italic;margin-right:8px}
 
     /* FORM */
     .form{display:flex;flex-direction:column;gap:20px}
@@ -105,7 +103,7 @@
     .footer-note{text-align:center;padding:32px clamp(22px,5vw,64px);border-top:1px solid rgba(255,255,255,.06);font-size:12px;color:rgba(255,255,255,.2);line-height:1.6}
     .footer-note a{color:rgba(255,255,255,.35);text-decoration:underline;text-underline-offset:2px}
 
-    /* ===== LIGHT THEME OVERRIDE — match landing page ===== */
+    /* ===== LIGHT THEME OVERRIDE. Match the landing page ===== */
     body{background:#f5f3ef;color:#0a0a0a;}
     .nav{background:rgba(245,243,239,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(10,10,10,.08);}
     .nav-back{color:rgba(10,10,10,.55);}
@@ -126,8 +124,6 @@
     .pathway-info-desc{color:#2a2540;}
     .community .pathway-tag{background:rgba(35,61,255,.08);color:#233dff;border:1px solid rgba(35,61,255,.18);}
     .ceu .pathway-tag{background:rgba(10,107,61,.08);color:#0a6b3d;border:1px solid rgba(10,107,61,.18);}
-    .pathway-info-price{border-top:1px solid rgba(10,10,10,.08);color:rgba(10,10,10,.45);}
-    .pathway-info-price strong{color:#0a0a0a;}
     .form-label{color:rgba(10,10,10,.45);}
     .form-label span{color:#e04060;}
     .form-input,.form-select,.form-textarea{background:#fff;border:1px solid rgba(10,10,10,.14);color:#0a0a0a;}
@@ -138,16 +134,12 @@
     .form-check input{border:1.5px solid rgba(10,10,10,.18);background:#fff;}
     .form-check-label{color:rgba(10,10,10,.6);}
     .form-check-label a{color:#233dff;}
-    /* Restyled submit button — HMC pill, not full-width */
+    /* Restyled submit button. HMC pill, not full-width */
     .submit-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:24px;}
     .submit-btn{width:auto!important;padding:15px 40px!important;min-width:240px;font-size:14px!important;font-weight:700!important;letter-spacing:.01em!important;text-transform:none!important;background:#0a0a0a!important;color:#fff!important;border:1.5px solid #0a0a0a!important;transition:background .25s,transform .25s!important;}
     .submit-btn::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;margin-right:8px;flex-shrink:0;}
     .submit-btn:hover:not(:disabled){background:#233dff!important;border-color:#233dff!important;transform:translateY(-2px)!important;}
     .submit-btn:disabled{opacity:.35!important;}
-    /* PayPal button */
-    .paypal-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:999px;background:#fff;border:1.5px solid rgba(10,10,10,.15);color:#0a0a0a;font-weight:700;font-size:13px;letter-spacing:.01em;text-decoration:none;transition:background .25s,border-color .25s,transform .25s;}
-    .paypal-btn:hover{background:#f5f3ef;border-color:#0a0a0a;transform:translateY(-2px);}
-    .paypal-btn-note{font-size:11px;color:rgba(10,10,10,.38);letter-spacing:.02em;}
     /* Success state light */
     .success p{color:rgba(10,10,10,.55);}
     .success h2{color:#0a0a0a;}
@@ -158,7 +150,10 @@
     /* Footer */
     .footer-note{border-top:1px solid rgba(10,10,10,.08);color:rgba(10,10,10,.35);}
     .footer-note a{color:rgba(10,10,10,.5);}
+    /* Account CTA in the hero. The hub is the front door for both pathways. */
+    .hero-account{position:relative;z-index:1;margin:0 0 clamp(28px,3.5vw,40px);}
   </style>
+  <link rel="stylesheet" href="./assets/site/hmc-buttons-1.0.3.css">
 </head>
 <body>
 
@@ -170,7 +165,11 @@
 <section class="hero">
   <span class="hero-eyebrow">Train with Unstoppable</span>
   <h1 class="hero-title">Register.</h1>
-  <p class="hero-sub">Choose your pathway below: community facilitator certification or 1.0 LACDMH-approved CE/CEU hours for licensed professionals.</p>
+  <p class="hero-sub">Community facilitator certification or 1.0 LACDMH-approved CE/CEU hours for licensed professionals. Create your account first, then choose your pathway below.</p>
+
+  <p class="hero-account">
+    <a class="hmc-btn hmc-btn-primary" data-hmc-label="Create Account" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
+  </p>
 
   <div class="toggle-wrap">
     <div class="toggle">
@@ -192,10 +191,6 @@
       <span class="pathway-tag">Social Workers</span>
       <span class="pathway-tag">Volunteers</span>
       <span class="pathway-tag">Medical Students</span>
-    </div>
-    <div class="pathway-info-price">
-      <strong id="pathwayPrice">$299</strong>
-      <span id="pathwayPriceNote">per person (HMC volunteers and current partners: $199)</span>
     </div>
   </div>
 
@@ -255,7 +250,7 @@
         <select class="form-select ceu-focus" id="sessionDate" name="sessionDate">
           <option value="" disabled selected>Select your session</option>
         </select>
-        <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:6px">Live Zoom session, Thursdays and Fridays 10:00 AM to 11:30 AM PT. Zoom link sent after payment is confirmed.</p>
+        <p style="font-size:11px;color:rgba(255,255,255,.35);margin-top:6px">Live Zoom session, Thursdays and Fridays 10:00 AM to 11:30 AM PT. Zoom link emailed to you before the session.</p>
       </div>
       <div class="form-field" style="margin-top:16px">
         <label class="form-label" for="licenseType">License Type <span>*</span></label>
@@ -319,14 +314,7 @@
   <div class="success" id="successState">
     <div class="success-icon community" id="successIcon">&#10003;</div>
     <h2 id="successTitle">You're registered.</h2>
-    <p id="successMsg">Thank you for registering. Our team will follow up at the email you provided with session details, next steps, and payment information. Questions? Email <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a>.</p>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:28px;">
-      <a class="paypal-btn" id="paypalBtn" href="https://www.paypal.com/paypalme/healthmattersclinic" target="_blank" rel="noopener noreferrer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-        Complete Payment via PayPal
-      </a>
-      <span class="paypal-btn-note">Payment due before training begins</span>
-    </div>
+    <p id="successMsg">Thank you for registering. Our team will follow up at the email you provided with session details and next steps. Questions? Email <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a>.</p>
     <a class="success-back community" id="successBack" href="./index.html" style="margin-top:20px">Back to Unstoppable &#8594;</a>
   </div>
 
@@ -400,16 +388,10 @@ function switchPathway(type) {
     document.getElementById('pathwayTitle').textContent = '1.0 CE/CEU Approved Training';
     document.getElementById('pathwayDesc').innerHTML = 'A 1.0 CE/CEU approved training on disability-inclusive, culturally affirming mental health frameworks. Approved by the Los Angeles County Department of Mental Health for BBS, BRN, CCAPP, and Psychology license renewal. Delivered by Erica Robinson, BBA and Dr. Leon Maultsby, DBH.';
     document.getElementById('pathwayTags').innerHTML = '<span class="pathway-tag">BBS</span><span class="pathway-tag">BRN</span><span class="pathway-tag">CCAPP</span><span class="pathway-tag">Psychology</span><span class="pathway-tag">LACDMH Approved</span>';
-    document.getElementById('pathwayPrice').textContent = '';
-    document.getElementById('pathwayPriceNote').textContent = '';
-    document.querySelector('.pathway-info-price').style.display = 'none';
   } else {
     document.getElementById('pathwayTitle').textContent = 'Facilitator Certification';
     document.getElementById('pathwayDesc').innerHTML = 'Co-developed with Dr. Dawn Bounds, PhD, PMHNP-BC, FAAN, Founding Director of the CYFER Lab at UC Irvine. Learn to lead Unstoppable workshops using trauma-informed, culturally responsive facilitation techniques. Upon completion you will receive an official certificate and join our facilitator network.';
     document.getElementById('pathwayTags').innerHTML = '<span class="pathway-tag">CHWs</span><span class="pathway-tag">Educators</span><span class="pathway-tag">Social Workers</span><span class="pathway-tag">Volunteers</span><span class="pathway-tag">Medical Students</span>';
-    document.getElementById('pathwayPrice').textContent = '$299';
-    document.getElementById('pathwayPriceNote').textContent = 'per person (HMC volunteers and current partners: $199)';
-    document.querySelector('.pathway-info-price').style.display = '';
   }
 
   // Conditional fields
@@ -433,11 +415,6 @@ function switchPathway(type) {
 
   // Success button color
   document.getElementById('successIcon').className = 'success-icon ' + type;
-  // Update paypal button label
-  const paypalBtn = document.getElementById('paypalBtn');
-  if (paypalBtn) {
-    paypalBtn.title = 'Pay $299 ($199 HMC partners) via PayPal';
-  }
   document.getElementById('successBack').className = 'success-back ' + type;
 }
 
@@ -485,8 +462,6 @@ async function submitForm(e) {
     document.getElementById('successTitle').textContent = 'Registration received.';
     var sessionLine = sessionDateLabel ? 'Your session: <strong>' + sessionDateLabel + '</strong>. ' : '';
     document.getElementById('successMsg').innerHTML = 'Thank you for registering for the 1.0 CE/CEU training. ' + sessionLine + 'Our team will be in touch with your Zoom link and session details before training begins. Questions? <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a>';
-    var paypalBtn = document.getElementById('paypalBtn');
-    if (paypalBtn) paypalBtn.style.display = 'none';
   } else {
     document.getElementById('successTitle').textContent = 'Application received.';
     document.getElementById('successMsg').innerHTML = 'Thank you for applying to the Facilitator Certification program. Our team will review your application and be in touch within 3 business days. Questions? <a href="mailto:training@healthmatters.clinic">training@healthmatters.clinic</a>';
