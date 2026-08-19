@@ -168,7 +168,14 @@
   <p class="hero-sub">Community facilitator certification or 1.0 LACDMH-approved CE/CEU hours for licensed professionals. Create your account first, then choose your pathway below.</p>
 
   <p class="hero-account">
-    <a class="hmc-btn hmc-btn-primary" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
+    <!-- The ?training= deep link matters. Member Hub accounts are invitation-only,
+         and a bare link to the Hub drops these people on the invitation gate. The
+         deep link opens registration for the pathway they picked and creates the
+         account from there, which is the front door we intend for trainees. The id
+         follows the toggle below; see switchPathway(). -->
+    <a class="hmc-btn hmc-btn-primary" id="accountLink"
+       href="https://hub.healthmatters.clinic/?training=cmhw-facilitator"
+       target="_blank" rel="noopener noreferrer">Create Account</a>
   </p>
 
   <div class="toggle-wrap">
@@ -383,6 +390,14 @@ function switchPathway(type) {
   // Pathway info card
   const infoCard = document.getElementById('pathwayInfo');
   infoCard.className = 'pathway-info ' + type;
+
+  // Send the account link to the course they actually chose, so the Hub opens the
+  // right registration instead of a generic one.
+  const accountLink = document.getElementById('accountLink');
+  if (accountLink) {
+    accountLink.href = 'https://hub.healthmatters.clinic/?training=' +
+      (isCEU ? 'unstoppable-ce' : 'cmhw-facilitator');
+  }
 
   if (isCEU) {
     document.getElementById('pathwayTitle').textContent = '1.0 CE/CEU Approved Training';
