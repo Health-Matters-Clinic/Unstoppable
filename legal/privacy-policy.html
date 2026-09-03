@@ -325,7 +325,7 @@
 
     <h1 class="doc-title">Privacy Policy</h1>
     <div class="doc-meta">
-      Effective Date: June 1, 2026 &nbsp;&middot;&nbsp; Last Updated: June 1, 2026 &nbsp;&middot;&nbsp; Version 1.0
+      Effective Date: June 1, 2026 &nbsp;&middot;&nbsp; Last Updated: September 3, 2026 &nbsp;&middot;&nbsp; Version 1.1
     </div>
 
     <div class="intro-block">
@@ -340,7 +340,7 @@
         <li><a href="#p3">Data Collected Per Platform</a></li>
         <li><a href="#p4">How We Use Your Data</a></li>
         <li><a href="#p5">SMS and Text Message Consent</a></li>
-        <li><a href="#p6">Health-Adjacent Data: CalmKit Self-Screening</a></li>
+        <li><a href="#p6">Health-Adjacent Data: CalmKit and Check Yourself</a></li>
         <li><a href="#p7">Third-Party Service Providers</a></li>
         <li><a href="#p8">Data Sharing and Disclosure</a></li>
         <li><a href="#p9">Data Retention</a></li>
@@ -371,6 +371,7 @@
         <li><strong>volunteer.healthmatters.clinic</strong> — Volunteer application and management portal</li>
         <li><strong>partner.healthmatters.clinic</strong> — Partner organization onboarding and coordination</li>
         <li><strong>calmkit.healthmatters.clinic</strong> — Anonymous digital wellness coaching tool</li>
+        <li><strong>checkyourself.healthmatters.clinic</strong> — Anonymous mental health self-screening tool</li>
         <li><strong>healthmatters.clinic/resources</strong> — Public resource directory</li>
         <li><strong>HMC Gumroad listings</strong> — Digital product downloads</li>
         <li>Any other HMC-operated web properties, email campaigns, or forms</li>
@@ -435,9 +436,23 @@
         <div class="platform-card-title">CalmKit</div>
         <div class="platform-card-url">calmkit.healthmatters.clinic</div>
         <ul>
-          <li><strong>Self-screening and coaching responses:</strong> NOT collected, stored, or transmitted. All inputs are processed within your browser session only and are discarded when you close or reset the session.</li>
+          <li><strong>Your coaching and reflection inputs:</strong> Not stored. They are processed within your browser session only and are discarded when you close or reset the session.</li>
+          <li><strong>Sent to HMC when a session ends:</strong> The 1 to 5 rating you give, session type, duration, distance walked if you used Guided Walk, language, and an irreversible per-device hash. No name, email, phone or account. Kept 24 months.</li>
+          <li><strong>Location:</strong> Requested only for Guided Walk and only with your permission, and used only to look up local weather and air quality. Not stored in any HMC database.</li>
           <li><strong>Automatically collected:</strong> Anonymous session data, IP address, browser type, device type (for performance and error monitoring only)</li>
           <li><strong>No account is required</strong> to use CalmKit. CalmKit is intentionally anonymous by design.</li>
+        </ul>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-card-title">Check Yourself</div>
+        <div class="platform-card-url">checkyourself.healthmatters.clinic</div>
+        <ul>
+          <li><strong>Your PHQ-9 and GAD-7 answers and scores:</strong> Never sent to HMC and never stored. Only the severity band each questionnaire produces leaves your browser.</li>
+          <li><strong>Sent automatically when your results appear:</strong> The two severity bands, whether the questionnaire indicated thoughts of self-harm, language, and an irreversible per-device hash. No name, email or phone. Kept 30 days.</li>
+          <li><strong>Only if you ask HMC to follow up:</strong> The name and contact method you enter, stored separately from your screening record and linked only by a random session code. Kept 30 days and emailed to HMC clinical staff so they can reach you.</li>
+          <li><strong>No account is required</strong> to use Check Yourself, and you can use it without requesting follow-up.</li>
+          <li><strong>Stored in:</strong> Firebase Firestore</li>
         </ul>
       </div>
 
@@ -566,21 +581,29 @@
 
     <!-- SECTION 6 -->
     <section id="p6">
-      <h2><span class="section-number">06</span> Health-Adjacent Data: CalmKit Self-Screening</h2>
+      <h2><span class="section-number">06</span> Health-Adjacent Data: CalmKit and Check Yourself</h2>
 
       <div class="ccpa-box">
-        <h3>CalmKit Is Intentionally Anonymous</h3>
-        <p>CalmKit self-screening responses, mood check-ins, coaching prompts, and any wellness inputs are processed entirely within your browser session. These responses are never transmitted to HMC's servers, never stored in any database, and never shared with any person or third party.</p>
-        <p>When you close your browser tab or reset the session, all inputs are permanently discarded. There is no account, no history, and no record of your CalmKit session in any HMC system.</p>
+        <h3>Your Individual Answers Never Leave Your Browser</h3>
+        <p>Neither tool asks who you are. Neither creates an account. Neither stores the answers you give to individual questions: what you type or tap in CalmKit, and every individual item you answer in Check Yourself, stays in your browser and is discarded when you close or reset the session.</p>
+        <p>Both tools do send HMC a short, de-identified record after a session so we can tell whether the tools are helping and report totals to the funders who pay for them. Those records are described below in full. They carry no name, email or phone number, and HMC never sees your individual answers.</p>
       </div>
 
-      <p>CalmKit is designed this way intentionally. We recognize that wellness and mental health reflection is deeply personal. We built CalmKit to give you a private space without creating any data trail.</p>
+      <p>We recognize that wellness and mental health reflection is deeply personal, so we built both tools to be useful to you without building a profile of you.</p>
 
-      <h3>6.1 What Is Collected in CalmKit</h3>
-      <p>The only data collected by HMC during a CalmKit session is anonymous technical data necessary for platform operation, including session duration, general device type, and error logs. This data cannot be linked back to any individual and is used only for debugging and performance monitoring.</p>
+      <h3>6.1 What CalmKit Sends to HMC</h3>
+      <p>When you finish a CalmKit session and rate how you feel, CalmKit sends us that rating (a number from 1 to 5), the type of session, how long it lasted, the distance walked if you used Guided Walk, and your language. It also sends a random identifier your browser generated for itself, which our server immediately converts into an irreversible hash so repeat sessions from one device can be counted once without that device being identifiable. This record is kept for 24 months and then deleted.</p>
+      <p>Guided Walk asks your permission before using your location. If you allow it, your coordinates pass through our server to Google's weather and air quality services so the walk can describe the conditions around you. HMC does not store your coordinates in any database. They do appear briefly in our hosting provider's routine server logs, which are deleted on that provider's standard schedule.</p>
+      <p>Meditation audio and guided coaching text are generated by Google Gemini and Google text-to-speech, requested through an HMC server so our API keys are not exposed in your browser.</p>
 
-      <h3>6.2 Not a HIPAA Covered Entity for Digital Tools</h3>
-      <p>HMC's digital wellness tools, including CalmKit, are not operated as a HIPAA-covered entity in the context of those tools. CalmKit does not create a provider-patient relationship and does not collect protected health information (PHI) as defined under HIPAA. If you receive in-person or telehealth clinical care from HMC directly, your PHI is handled under a separate HIPAA Notice of Privacy Practices provided to you at the time of care.</p>
+      <h3>6.2 What Check Yourself Sends to HMC</h3>
+      <p>Check Yourself uses two validated screening questionnaires, the PHQ-9 and the GAD-7. Your answers to the individual questions, and the numeric scores they produce, are never sent to HMC and are never stored anywhere. Only the severity band each questionnaire produces, such as "mild" or "moderate", leaves your browser.</p>
+      <p>When your results appear, Check Yourself automatically sends us an anonymous record containing those two severity bands, whether the questionnaire indicated thoughts of self-harm, your language, and the same kind of irreversible per-device hash described above. That record contains no name, email or phone number. It is deleted after 30 days.</p>
+      <p>If you choose to ask HMC to reach out to you, and only then, you give us a name and a way to contact you. Those details are stored separately from your screening record, linked only by a random session code, kept for 30 days, and emailed to HMC clinical staff so someone can follow up with you. You can use Check Yourself fully without taking this step.</p>
+      <p>If the questionnaire indicates thoughts of self-harm, the results screen surfaces the 988 Suicide and Crisis Lifeline. Check Yourself is a screening tool, not a diagnosis, and it is not monitored in real time. In an emergency, call 988 or 911.</p>
+
+      <h3>6.3 HIPAA and These Tools</h3>
+      <p>HMC's digital wellness tools are not operated as a HIPAA-covered entity in the context of those tools, and using CalmKit or Check Yourself does not by itself create a provider-patient relationship. If you request follow-up through Check Yourself, that request is handled by HMC clinical staff, and any care that follows is governed by the separate HIPAA Notice of Privacy Practices you receive at the point of care. The same notice governs your information if you receive in-person or telehealth clinical care from HMC directly.</p>
     </section>
 
     <!-- SECTION 7 -->
@@ -726,9 +749,29 @@
             <td>Legal compliance, referral records</td>
           </tr>
           <tr>
-            <td>CalmKit session data</td>
-            <td>Not retained (session-only)</td>
-            <td>By design: anonymous tool</td>
+            <td>CalmKit and Check Yourself individual answers</td>
+            <td>Not retained (browser session only)</td>
+            <td>By design: never sent to HMC</td>
+          </tr>
+          <tr>
+            <td>De-identified session records (CalmKit and Check Yourself)</td>
+            <td>24 months</td>
+            <td>Measuring whether the tools help; funder reporting</td>
+          </tr>
+          <tr>
+            <td>Check Yourself anonymous screening records</td>
+            <td>30 days</td>
+            <td>Population health tracking</td>
+          </tr>
+          <tr>
+            <td>Check Yourself follow-up requests (name and contact)</td>
+            <td>30 days</td>
+            <td>Clinical outreach you asked us for</td>
+          </tr>
+          <tr>
+            <td>Aggregate counts with no individual records</td>
+            <td>Indefinitely</td>
+            <td>Grant and funder reporting</td>
           </tr>
           <tr>
             <td>Website analytics data (Google Analytics)</td>
@@ -842,11 +885,12 @@
         <li><strong>California Customer Records (Civil Code 1798.80):</strong> Name, address, telephone number, physical description where photos are submitted (Volunteer Portal)</li>
         <li><strong>Protected classification characteristics:</strong> Age (for volunteer age verification only)</li>
         <li><strong>Internet or network activity:</strong> Browsing history on HMC platforms, interaction data (all platforms)</li>
-        <li><strong>Geolocation data:</strong> General location inferred from IP address only (no precise geolocation is collected)</li>
+        <li><strong>Geolocation data:</strong> General location inferred from IP address. Precise location only if you grant CalmKit's Guided Walk permission to use it, and only to look up local weather and air quality (not stored in any HMC database)</li>
         <li><strong>Professional or employment-related information:</strong> Skills, availability, role preferences (Volunteer Portal)</li>
         <li><strong>Inferences drawn from personal information:</strong> Interest in particular event types or volunteer roles (for internal coordination only)</li>
       </ul>
-      <p>HMC has not collected sensitive personal information as defined under CPRA (such as precise geolocation, financial account numbers, racial or ethnic origin, biometric data, or health data in a clinical context) through its digital platforms in the past 12 months, except for HIPAA training records of volunteers maintained for legal compliance.</p>
+      <p>In the past 12 months HMC has collected two categories of sensitive personal information as defined under CPRA. <strong>Health information:</strong> the de-identified session and screening records described in Section 6, the follow-up contact details you choose to provide through Check Yourself, and volunteer HIPAA training records retained for legal compliance. <strong>Precise geolocation:</strong> only where you grant CalmKit's Guided Walk permission, and only to retrieve local weather and air quality, as described in Section 6.1.</p>
+      <p>HMC has not collected financial account numbers, racial or ethnic origin, religious or philosophical beliefs, union membership, genetic data, biometric data used to identify you, or the contents of your mail, email or text messages. HMC does not use sensitive personal information to infer characteristics about you, and does not sell or share it.</p>
     </section>
 
     <!-- SECTION 13 -->
