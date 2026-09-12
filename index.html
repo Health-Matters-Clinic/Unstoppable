@@ -1412,7 +1412,7 @@ html.has-custom-cursor body.story-open,html.has-custom-cursor body.story-open *{
             <span>Open to CHWs, educators, social workers, volunteers</span>
           </div>
         </div>
-        <a class="hmc-btn hmc-btn-primary" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
+        <a class="hmc-btn hmc-btn-primary" href="./register.html">Register for Certification</a>
       </div>
 
       <!-- CEU Professional Card -->
@@ -1438,7 +1438,7 @@ html.has-custom-cursor body.story-open,html.has-custom-cursor body.story-open *{
             <span>Psychology board approved</span>
           </div>
         </div>
-        <a class="hmc-btn hmc-btn-primary" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
+        <a class="hmc-btn hmc-btn-primary" href="./register.html?pathway=ceu">Register for CE/CEU Training</a>
       </div>
 
     </div>
@@ -1449,11 +1449,11 @@ html.has-custom-cursor body.story-open,html.has-custom-cursor body.story-open *{
       <span class="training-next-label">Next Sessions</span>
       <h3 class="training-next-title">When we train.</h3>
       <div class="training-slot-list" id="trainingSlotList">
-        <p class="training-slot-empty">No dates are on the calendar right now. Create your account and you will see the next session the day it opens.</p>
+        <p class="training-slot-empty">CE/CEU sessions run live on Zoom, Thursdays and Fridays, 10:00 AM to 11:30 AM PT. Pick the date that works for you on the registration form.</p>
       </div>
       <div class="training-next-foot">
-        <p>Registration runs through your account. One account covers facilitator certification and CE/CEU sessions.</p>
-        <a class="hmc-btn hmc-btn-secondary" href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">Create Account</a>
+        <p>One form covers both paths: facilitator certification and the 1.0 CE/CEU training.</p>
+        <a class="hmc-btn hmc-btn-secondary" href="./register.html?pathway=ceu">Choose Your Session Date</a>
       </div>
     </div>
 
@@ -1507,13 +1507,13 @@ html.has-custom-cursor body.story-open,html.has-custom-cursor body.story-open *{
           <details class="footer-faq-item">
             <summary>Are continuing education (CEU) credits available?</summary>
             <div class="footer-faq-answer">
-              <p>Yes. The Unstoppable training is approved by the Los Angeles County Department of Mental Health for 1.0 CE/CEU hours, recognized by BBS (LCSW, LMFT, LPCC), BRN (Registered Nurses), CCAPP (addiction counselors), and Psychology. The approval was issued February 27, 2026 and runs through February 27, 2027. Licensed professionals start by creating an account at <a href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">hub.healthmatters.clinic</a>, which is where sessions are booked and certificates are issued.</p>
+              <p>Yes. The Unstoppable training is approved by the Los Angeles County Department of Mental Health for 1.0 CE/CEU hours, recognized by BBS (LCSW, LMFT, LPCC), BRN (Registered Nurses), CCAPP (addiction counselors), and Psychology. The approval was issued February 27, 2026 and runs through February 27, 2027. Licensed professionals book a session on the <a href="./register.html?pathway=ceu">CE/CEU registration form</a>, where you choose your date and enter your license board and number. Your certificate is issued after you complete the training.</p>
             </div>
           </details>
           <details class="footer-faq-item">
             <summary>How do I bring it to my community?</summary>
             <div class="footer-faq-answer">
-              <p>Two paths: partner organizations can request the Workshop through the HMC Partner Portal at <a href="https://partner.healthmatters.clinic" target="_blank" rel="noopener noreferrer">partner.healthmatters.clinic</a>. Or become a certified Unstoppable Facilitator yourself and bring it directly to your community. Create an account at <a href="https://hub.healthmatters.clinic" target="_blank" rel="noopener noreferrer">hub.healthmatters.clinic</a> to apply.</p>
+              <p>Two paths: partner organizations can request the Workshop through the HMC Partner Portal at <a href="https://partner.healthmatters.clinic" target="_blank" rel="noopener noreferrer">partner.healthmatters.clinic</a>. Or become a certified Unstoppable Facilitator yourself and bring it directly to your community. <a href="./register.html">Register for the next certification session</a>.</p>
             </div>
           </details>
         </div>
@@ -2138,7 +2138,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.cl
           format: 'Live on Zoom' }            // optional
 
       Leave the array empty and the section keeps the written empty state, which
-      sends people to create an account rather than showing an invented date.
+      sends people to register.html rather than showing an invented date.
 
    2. The live HMC events feed. Any published event whose title or program names
       a training, certification or CE/CEU session is picked up automatically, so
