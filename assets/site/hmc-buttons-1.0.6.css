@@ -1,0 +1,103 @@
+/* HMC shared button system. v1.0.6
+
+   1.0.6 is 1.0.5 plus one opt-in variant and nothing else. Every existing rule
+   is byte-identical, so a page moved from 1.0.5 to 1.0.6 without changing its
+   markup looks exactly the same.
+
+   The addition is .hmc-btn-arrow: a trailing arrow instead of the leading dot,
+   for the one-per-screen CTA that sends someone onward rather than confirming
+   something. Two rules keep it honest. The arrow replaces the dot rather than
+   joining it, because a button carrying both reads as two signals. And it is
+   drawn as a CSS mask filled with currentColor, so it is white on the primary
+   fill and dark on the secondary for free, and adds no child node to markup a
+   React app owns, which is the same reason the dot is a pseudo-element.
+
+   Note this is an ::after and 1.0.5's notes say the ::after is gone. That
+   removal was of a pseudo-element carrying a copy of the label, positioned by a
+   script that measured where the label started, and it was the measuring that
+   broke. This one holds a fixed-size mask at the end of the flex row, measures
+   nothing, and runs no script.
+
+   1.0.0 to 1.0.5 are left on disk untouched, because pages are pinned to them.
+   Pair with hmc-buttons-1.0.6.js, whose only job is to keep markup that ships
+   its own dot from drawing a second one. */
+
+.hmc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 22px;
+  border-radius: 100px;
+  border: 1px solid #0f0f0f;
+  font-size: 16px;
+  line-height: 1.2em;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  /* The pill cannot grow wider than the card, grid cell or form column holding
+     it. A label with nowhere left to go wraps inside the pill rather than being
+     held on one line and cut off, which is what a long label in a narrow card
+     used to do: the button stayed the right width and the words went missing.
+     overflow-wrap covers the one case wrapping cannot, a single word longer
+     than the button, and overflow keeps anything at all from leaving the pill. */
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  overflow: hidden;
+}
+
+.hmc-btn-primary { background: #2333df; color: #fff; }
+.hmc-btn-secondary { background: #fff; color: #1a1a1a; }
+
+/* 6px dot, drawn in CSS so no child node is added to React-owned markup.
+   currentColor gives a white dot on the primary fill and a dark one on the
+   secondary. Opt out per button with data-hmc-dot="off" (icon-led buttons). */
+.hmc-btn:not([data-hmc-dot="off"])::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+/* Markup that ships its own dot element keeps working. */
+.hmc-btn-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.hmc-btn-primary .hmc-btn-dot { background: #fff; }
+.hmc-btn-secondary .hmc-btn-dot { background: #0f0f0f; }
+.hmc-btn[data-hmc-dot="off"]::before { display: none; }
+
+/* Hover. Brightness only, so it lands the same way on the standard fills and on
+   buttons carrying an inline background colour, and moves nothing on the page.
+   The colour rules hold the label legible against hosts that ship a global
+   `a:hover { color: ... }`. */
+.hmc-btn:hover { filter: brightness(.92); }
+.hmc-btn-primary:hover { color: #fff; opacity: 1; }
+.hmc-btn-secondary:hover { color: #1a1a1a; opacity: 1; }
+.hmc-btn:active { filter: brightness(.86); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hmc-btn { transition-duration: 0s; }
+}
+
+/* Arrow CTA. Opt in with class="hmc-btn hmc-btn-primary hmc-btn-arrow".
+   The arrow replaces the dot, so no button shows both. */
+.hmc-btn-arrow::before { display: none; }
+.hmc-btn-arrow::after {
+  content: "";
+  width: 17px;
+  height: 12px;
+  flex-shrink: 0;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 12'%3E%3Cpath d='M10.4.6 15.8 6l-5.4 5.4M15.4 6H.6' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 12'%3E%3Cpath d='M10.4.6 15.8 6l-5.4 5.4M15.4 6H.6' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+  transition: transform .3s;
+}
+.hmc-btn-arrow:hover::after { transform: translateX(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hmc-btn-arrow::after { transition-duration: 0s; }
+  .hmc-btn-arrow:hover::after { transform: none; }
+}
