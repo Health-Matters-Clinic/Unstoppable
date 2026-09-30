@@ -20,8 +20,8 @@
 
     /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px clamp(22px,5vw,64px);display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
-    .nav-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);transition:color .2s}
-    .nav-back:hover{color:#fff}
+    .nav-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(35,61,255,.7);transition:color .2s}
+    .nav-back:hover{color:#233dff}
     .nav-brand{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
 
     /* HERO */
@@ -106,8 +106,8 @@
     /* ===== LIGHT THEME OVERRIDE. Match the landing page ===== */
     body{background:#f5f3ef;color:#0a0a0a;}
     .nav{background:rgba(245,243,239,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(10,10,10,.08);}
-    .nav-back{color:rgba(10,10,10,.55);}
-    .nav-back:hover{color:#0a0a0a;}
+    .nav-back{color:rgba(35,61,255,.65);}
+    .nav-back:hover{color:#233dff;}
     .nav-brand{color:rgba(10,10,10,.35);}
     .hero{background:transparent;}
     .hero::before{background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(35,61,255,.08) 0%,transparent 70%);}
@@ -310,6 +310,8 @@
       </label>
     </div>
 
+    <p id="submitError" style="display:none;color:#ff6f91;font-size:13px;line-height:1.5;margin:0 0 14px;text-align:center"></p>
+
     <div class="submit-wrap">
       <button class="submit-btn community" type="submit" id="submitBtn">
         <span id="submitText">Submit Registration</span>
@@ -437,6 +439,8 @@ async function submitForm(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
   const txt = document.getElementById('submitText');
+  const errEl = document.getElementById('submitError');
+  errEl.style.display = 'none';
   btn.disabled = true;
   txt.textContent = 'Submitting...';
 
@@ -464,10 +468,22 @@ async function submitForm(e) {
   };
 
   try {
-    fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
-  } catch (_) {}
+    // mode:'no-cors' makes the response body/status permanently opaque to this script,
+    // so a GAS-side logical failure (bad payload, script error, disabled deployment
+    // returning an HTML error page) still can't be detected here — that's a real
+    // constraint of no-cors, not something this fix claims to solve. What awaiting
+    // this DOES catch is a hard network failure: wrong URL, DNS failure, connection
+    // refused, timeout. Those used to be silently swallowed by the empty catch below,
+    // so a fully dead endpoint looked identical to a successful submission.
+    await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+  } catch (_) {
+    btn.disabled = false;
+    txt.textContent = 'Submit Registration';
+    errEl.textContent = "We couldn't reach our system just now. Please try again in a moment, or email training@healthmatters.clinic directly so we don't lose your application.";
+    errEl.style.display = 'block';
+    return;
+  }
 
-  // Show success regardless (no-cors can't confirm)
   document.getElementById('regForm').style.display = 'none';
   document.getElementById('pathwayInfo').style.display = 'none';
   const success = document.getElementById('successState');

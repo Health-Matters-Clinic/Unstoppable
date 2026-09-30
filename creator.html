@@ -137,6 +137,7 @@
         </div>
         <div class="field full"><label for="about">What do you create? (optional)</label><textarea id="about" placeholder="Tell us a little about your content and where you are in your creator journey."></textarea></div>
         <button class="submit-btn" type="submit"><span class="dot"></span><span id="btnText">Join the List</span></button>
+        <p id="submitError" style="display:none;color:#ff6f91;font-size:13px;line-height:1.5;margin:8px 0 0;text-align:center"></p>
         <p class="form-fine">We will only use your info to contact you about The Unstoppable Creator. No spam.</p>
       </form>
       <div class="success" id="successBox">
@@ -156,9 +157,11 @@
 
 <script>
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbzPUzjEIQhwEO5uD55EK1IHKKHh3RabUtAGyNcNkx_1KpefWm21_FOuRrZknDWyGU1J1g/exec';
-document.getElementById('interestForm').addEventListener('submit', function(e){
+document.getElementById('interestForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const submitBtn = e.submitter || document.querySelector('.submit-btn');
+  const errEl = document.getElementById('submitError');
+  errEl.style.display = 'none';
   submitBtn.disabled = true;
   document.getElementById('btnText').textContent = 'Submitting...';
   const data = {
@@ -176,7 +179,20 @@ document.getElementById('interestForm').addEventListener('submit', function(e){
     howHeard: 'creator-interest-page',
     timestamp: new Date().toISOString()
   };
-  try { fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) }); } catch(_){}
+  try {
+    // mode:'no-cors' makes the response permanently opaque, so a GAS-side logical
+    // failure still can't be detected here — that's a real constraint, not solved by
+    // this change. Awaiting the fetch does catch a hard network failure (wrong URL,
+    // DNS failure, connection refused), which used to be silently swallowed here,
+    // making a fully dead endpoint look identical to a successful submission.
+    await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+  } catch (_) {
+    submitBtn.disabled = false;
+    document.getElementById('btnText').textContent = 'Join the List';
+    errEl.textContent = "We couldn't reach our system just now. Please try again in a moment, or email training@healthmatters.clinic directly so we don't lose your submission.";
+    errEl.style.display = 'block';
+    return;
+  }
   document.getElementById('interestForm').style.display = 'none';
   document.getElementById('successBox').style.display = 'block';
 });
