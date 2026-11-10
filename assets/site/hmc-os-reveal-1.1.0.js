@@ -76,7 +76,7 @@
       '<h3 class="sep-title">Check yourself. Check in. <em>Move forward.</em></h3>' +
       '<p class="sep-intro">Mental wellness is not only something to think about in a crisis. Knowing where you are, staying connected to people, and finding practices that help all count. Start with one.</p>' +
       '<div class="sep-grid">' +
-        '<div class="sep-card"><h4>Check yourself.</h4><p>How are you, really? Take about three minutes to see where you are at. Free, private, English and Spanish.</p><a href="https://checkyourself.healthmatters.clinic">Start a check-in</a></div>' +
+        '<div class="sep-card"><h4>Check yourself.</h4><p>How are you, really? Take about three minutes to see where you are at. Free, private, English and Spanish.</p><a href="https://www.healthmatters.clinic/resources/checkyourself">Start a check-in</a></div>' +
         '<div class="sep-card"><h4>Check in.</h4><p>You do not have to do it alone. Find events, workshops, and community happening across Los Angeles and online.</p><a href="https://eventfinder.healthmatters.clinic">Find an event</a></div>' +
         '<div class="sep-card"><h4>Move forward.</h4><p>Practical tools for the moments when you need to pause, reset, move, or simply keep going.</p><a href="https://calmkit.healthmatters.clinic">Explore CalmKit</a></div>' +
       '</div>' +
